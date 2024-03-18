@@ -2,7 +2,6 @@
 date: 2023-10-20T10:58:08-03:00
 description: "Minecraft shader based on Optifine"
 featured_image: "/images/Volcan/SSR.png"
-tags: [""]
 title: "Volcan"
 ---
 
