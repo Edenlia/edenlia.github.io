@@ -1,31 +1,30 @@
-disqusShortname = "Shuyang"title = "Shuyang Zhang Portfolio"
-                           baseURL = "https://edenlia.github.io"
-                           tags = ["portfolio", "web design", "blog"]
-                           languageCode = "en-US"
-                           config = "config.toml"
-                           theme = "osprey"
-                           canonifyURLS = true
-                           staticDir = "static"
-                           googleAnalytics = ""
-
+title = "Osprey Example Site"
+baseURL = "https://tomanistor.com"
+tags = ["portfolio", "web design", "blog"]
+languageCode = "en-US"
+config = "config.toml"
+theme = "osprey"
+canonifyURLS = true
+googleAnalytics = ""
+disqusShortname = "tomanistor"
 disableKinds = ["taxonomy", "taxonomyTerm"] # This theme does not currently use "tag" and "category" taxonomies
 
 [Params]
-  tagline = "Shuyang Zhang"
-  author = "Shuyang Zhang"
+  tagline = "Osprey Example Site"
+  author = "Toma Nistor"
   description = "Full-stack web developer and UI/UX enthusiast based in San Diego, CA."
-  logoBig = "/images/hero-image.jpg"
+  logoBig = "/images/osprey-logo.png"
   logoSmall = "/images/osprey-logo.png"
   favicon = "favicon.ico"
   opengraphImage = "/images/osprey.png"
-  email = "zsy010906@gmail.com"
+  email = ""
   googleTagManger = ""
   customCSS = false
 
   # Social media links in footer
-  twitter = ""
-  linkedin = "shuyang-zhang-021749280"
-  github = "Edenlia"
+  twitter = "TomaNistor"
+  linkedin = "tomanistor"
+  github = "tomanistor"
   facebook = ""
 
   # Copyright and theme author credit in footer

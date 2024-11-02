@@ -5,8 +5,76 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6c43511b-0aa2-456c-acd8-81f6e1e0a0eb" name="Changes" comment="delete .idea">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/en/post/Volcan.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/en/post/Volcan.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/archetypes/blog.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/archetypes/default.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/archetypes/gallery.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/assets/js/src/contact.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/assets/js/src/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/assets/js/src/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/assets/js/src/modal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/assets/js/vendor/lazysizes.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/assets/sass/_about.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/assets/sass/_animation.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/assets/sass/_base.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/assets/sass/_colors.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/assets/sass/_flexboxgrid.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/assets/sass/_gallery.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/assets/sass/_layout.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/assets/sass/_modal.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/assets/sass/_typography.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/assets/sass/main.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/exampleSite/config.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/exampleSite/content/about.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/exampleSite/content/blog/creating-a-new-theme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/exampleSite/content/blog/goisforlovers.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/exampleSite/content/blog/hugoisforlovers.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/exampleSite/content/blog/migrate-from-jekyll.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/exampleSite/content/gallery/hugo.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/exampleSite/content/gallery/osprey.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/exampleSite/content/gallery/rugged-fellows-guide.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/exampleSite/content/gallery/toma-nistor.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/exampleSite/static/images/hugo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/exampleSite/static/images/osprey-logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/exampleSite/static/images/osprey.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/exampleSite/static/images/rugged-fellows-guide.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/exampleSite/static/images/toma-nistor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/i18n/de.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/i18n/en.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/i18n/sv.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/images/basin-ajax-setup.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/images/osprey-logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/images/screenshot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/images/tn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/layouts/404.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/layouts/_default/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/layouts/_default/single.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/layouts/gallery/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/layouts/gallery/single.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/layouts/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/layouts/partials/about.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/layouts/partials/blog.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/layouts/partials/body-bottom.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/layouts/partials/body-top.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/layouts/partials/contact.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/layouts/partials/css.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/layouts/partials/disqus.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/layouts/partials/footer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/layouts/partials/gallery.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/layouts/partials/head.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/layouts/partials/modals.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/layouts/partials/scripts/contact.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/layouts/sitemap.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/static/images/icon-menu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/static/images/icon-x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/static/images/osprey-logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/static/images/osprey.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/osprey/theme.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.toml" beforeDir="false" afterPath="$PROJECT_DIR$/config.toml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,20 +96,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/zsy01/Workspace/CodeProjects/WebVHuman&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/zsy01/Workspace/CodeProjects/edenlia.github.io/themes",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\zsy01\Workspace\CodeProjects\edenlia.github.io\themes" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-WS-242.23339.15" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -53,6 +133,7 @@
       <workItem from="1709061975750" duration="1264000" />
       <workItem from="1709254478936" duration="354000" />
       <workItem from="1710270410344" duration="598000" />
+      <workItem from="1730582826509" duration="1966000" />
     </task>
     <task id="LOCAL-00001" summary="delete .idea">
       <option name="closed" value="true" />
