@@ -1,13 +1,13 @@
-disqusShortname = "Shuyang"title = "Shuyang Zhang Portfolio"
-                           baseURL = "https://edenlia.github.io"
-                           tags = ["portfolio", "web design", "blog"]
-                           languageCode = "en-US"
-                           config = "config.toml"
-                           theme = "osprey"
-                           canonifyURLS = true
-                           staticDir = "static"
-                           googleAnalytics = ""
-
+title = "Shuyang Zhang Portfolio"
+baseURL = "https://edenlia.github.io"
+tags = ["portfolio", "web design", "blog"]
+languageCode = "en-US"
+config = "config.toml"
+theme = "osprey"
+canonifyURLS = true
+staticDir = "static"
+googleAnalytics = ""
+disqusShortname = "Shuyang"
 disableKinds = ["taxonomy", "taxonomyTerm"] # This theme does not currently use "tag" and "category" taxonomies
 
 [Params]
@@ -17,7 +17,7 @@ disableKinds = ["taxonomy", "taxonomyTerm"] # This theme does not currently use 
   logoBig = "/images/hero-image.jpg"
   logoSmall = "/images/osprey-logo.png"
   favicon = "favicon.ico"
-  opengraphImage = "/images/osprey.png"
+  opengraphImage = "/images/hero-image.jpg"
   email = "zsy010906@gmail.com"
   googleTagManger = ""
   customCSS = false
