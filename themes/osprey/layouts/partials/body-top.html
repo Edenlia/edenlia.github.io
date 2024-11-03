@@ -94,7 +94,7 @@
   </header>
 {{ end }}
 
-{{ if .IsHome }}}
+{{ if .IsHome }}
 <script src="{{ (resources.Get "js/src/preview.js" | minify | fingerprint).Permalink }}" type="text/javascript"></script>
 {{ end }}
 
