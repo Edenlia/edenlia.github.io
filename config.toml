@@ -16,6 +16,7 @@ disableKinds = ["taxonomy", "taxonomyTerm"] # This theme does not currently use 
   description = "Game developer and Computer Graphics enthusiast from China."
   logoBig = "/images/logo-big.png"
   logoSmall = "/images/logo-small.png"
+  headerBgImage = "/images/hero-image.jpg"
   favicon = "favicon.ico"
   opengraphImage = "/images/hero-image.jpg"
   email = "zsy010906@gmail.com"
@@ -51,22 +52,26 @@ disableKinds = ["taxonomy", "taxonomyTerm"] # This theme does not currently use 
 
 [[menu.main]]
   name = "Home"
-  url  = "/#home"
+  url  = "/"
   weight = 1
 [[menu.main]]
   name = "Work"
-  url  = "/#work"
+  url  = "/work"
   weight = 2
 [[menu.main]]
   name = "Games"
-  url  = "/#contact"
+  url  = "/games"
   weight = 3
 [[menu.main]]
-  name = "CG"
-  url  = "/#blog"
+  name = "Tech"
+  url  = "/tech"
   weight = 4
+#[[menu.main]]
+#  name = "Art"
+#  url  = "/#blog"
+#  weight = 5
 [[menu.main]]
   name = "About"
-  url  = "/#about"
-  weight = 5
+  url  = "/about"
+  weight = 6
 
