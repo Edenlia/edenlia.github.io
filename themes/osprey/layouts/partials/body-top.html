@@ -94,6 +94,10 @@
   </header>
 {{ end }}
 
+{{ if .IsHome }}}
+<script src="{{ (resources.Get "js/src/preview.js" | minify | fingerprint).Permalink }}" type="text/javascript"></script>
+{{ end }}
+
 <nav class="row middle-xs center-xs">
   <div class="col-xs-6 col-sm-1 logo">
     <a href="{{ "#" | relLangURL }}"><img {{ if .Site.Params.lazyLoading }}data-src="{{ .Site.Params.logoSmall }}" class="lazyload" lazyload="on"{{ else }}src="{{ .Site.Params.logoSmall }}"{{ end }} alt="{{ .Site.Title }}"></a>
