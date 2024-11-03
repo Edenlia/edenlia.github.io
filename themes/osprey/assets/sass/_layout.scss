@@ -32,6 +32,7 @@ body {
 header {
   height: 100vh;
   background-color: $russian-violet;
+  position: relative;
 
   div {
     z-index: 101;
@@ -44,6 +45,136 @@ header {
   h1 {
     font-family: $font-body;
   }
+
+  $preview-bg-height: calc(100% - #{$vertical-rhythm * 2}); // 100% - nav height
+
+  .preview-background {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr); /* 创建三行，行高相等 */
+    grid-template-columns: 1fr;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: $preview-bg-height;
+    z-index: 0; /* 将背景层放在内容后面 */
+  }
+
+  .preview-grid-row {
+    display: grid;
+    gap: 10px;
+    white-space: nowrap;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    grid-auto-flow: column;
+    height: 100%;
+  }
+
+  // 第二行
+  .preview-row-even {
+    direction: rtl; // from right to left
+  }
+
+  // 第一行和第三行
+  .preview-row-odd {
+  }
+
+  .grid-1-1 {
+    aspect-ratio: 1;
+  }
+
+  .grid-3-2 {
+      aspect-ratio: 3/2;
+  }
+
+  .grid-4-3 {
+      aspect-ratio: 4/3;
+  }
+
+  .grid-16-9 {
+      aspect-ratio: 16/9;
+  }
+
+  .preview-item {
+    position: relative;
+    height: 100%;
+    padding: 0;
+
+    &::after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+
+    &:hover {
+      .preview-overlay {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+
+  .preview-img-container {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; // 隐藏溢出部分
+
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: auto; /* 根据需要设置宽高 */
+      height: auto;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover; /* 保持图片比例并覆盖整个容器 */
+
+    }
+  }
+
+  .open-preview-page {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .preview-overlay {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: .2s ease-out;
+    opacity: 0;
+    background-color: $black;
+    cursor: pointer;
+
+    a {
+      color: $white;
+
+      &:hover {
+        color: $accent;
+      }
+    }
+
+    h2,h3 {
+      //margin: $vertical-rhythm;
+      color: $white;
+    }
+  }
+
+
 }
 
 footer {
