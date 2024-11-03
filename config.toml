@@ -13,9 +13,9 @@ disableKinds = ["taxonomy", "taxonomyTerm"] # This theme does not currently use 
 [Params]
   tagline = "Shuyang Zhang"
   author = "Shuyang Zhang"
-  description = "Full-stack web developer and UI/UX enthusiast based in San Diego, CA."
-  logoBig = "/images/hero-image.jpg"
-  logoSmall = "/images/osprey-logo.png"
+  description = "Game developer and Computer Graphics enthusiast from China."
+  logoBig = "/images/logo-big.png"
+  logoSmall = "/images/logo-small.png"
   favicon = "favicon.ico"
   opengraphImage = "/images/hero-image.jpg"
   email = "zsy010906@gmail.com"

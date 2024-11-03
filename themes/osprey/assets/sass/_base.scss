@@ -33,7 +33,7 @@ pre {
   margin-bottom: $vertical-rhythm;
   padding: 16px;
   overflow: auto;
-  background-color: $smoke;
+  background-color: $rich-black;
   font: 12px "Consolas", "Liberation Mono", "Menlo", "Courier", monospace;
   font-family: $font-code;
   font-size: 85%;
@@ -44,7 +44,7 @@ pre {
     margin: 0;
     padding: 0;
     border: 0;
-    background: transparent;
+    background: $rich-black;
     font-size: 100%;
     word-break: normal;
     white-space: pre;
@@ -56,7 +56,7 @@ pre {
     padding: 0;
     overflow: visible;
     border: 0;
-    background-color: transparent;
+    background-color: $rich-black;
     line-height: inherit;
     word-wrap: normal;
 
@@ -69,7 +69,7 @@ pre {
 
 code {
   padding: 4px;
-  background-color: $smoke;
+  background-color: $rich-black;
   font-family: $font-code;
   font-size: 90%;
 }
