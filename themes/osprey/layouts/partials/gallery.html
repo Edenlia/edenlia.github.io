@@ -1,14 +1,16 @@
+
+
 <section class="gallery" id="work">
   <div class="row">
 
     <!-- First 4 characters of each gallery page's unique ID -->
-    {{ range where .Site.RegularPages "Section" "gallery" }}
+    {{ range where .ctx.Site.RegularPages "Section" .gallerySection }}
       <!-- Scratch is used to set page-scoped variable outside of this loop-->
       {{ .Scratch.Set "$modalID" (slicestr .File.UniqueID 0 4) }}
     {{ end }}
 
-    {{ $galleryTotal := len (where .Site.RegularPages "Section" "gallery") }}
-    {{ $galleryReverse := (where .Site.RegularPages.Reverse "Section" "gallery") }}
+    {{ $galleryTotal := len (where .ctx.Site.RegularPages "Section" .gallerySection) }}
+    {{ $galleryReverse := (where .ctx.Site.RegularPages "Section" .gallerySection) }}
 
     <!-- If gallery is an odd total -->
     {{ if not (modBool $galleryTotal 2) }}
@@ -21,7 +23,7 @@
               <img {{ if .Site.Params.lazyLoading }}data-src="{{ "images/" | relURL }}{{ .Params.image}}" lazyload="on"{{ else }}src="{{ "images/" | relURL }}{{ .Params.image}}"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
             </div>
             <div class="row middle-xs center-xs overlay">
-              <a href="#modal-{{ .Scratch.Get "$modalID" }}" data-modal="modal-{{ .Scratch.Get "$modal" }}" class="gallery-modal-link"></a>
+                <a href="{{ .Permalink }}" class="open-gallery-page"></a>
               <h2>{{ .Title }}</h2>
             </div>
           </div>
@@ -36,7 +38,7 @@
               <img {{ if .Site.Params.lazyLoading }}data-src="{{ "images/" | relURL }}{{ .Params.image}}" class="lazyload" lazyload="on"{{ else }}src="{{ "images/" | relURL }}{{ .Params.image}}"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
             </div>
             <div class="row middle-xs center-xs overlay">
-              <a href="#modal-{{ .Scratch.Get "$modalID" }}" data-modal="modal-{{ .Scratch.Get "$modal" }}" class="gallery-modal-link"></a>
+                <a href="{{ .Permalink }}" class="open-gallery-page"></a>
               <h2>{{ .Title }}</h2>
             </div>
           </div>
@@ -59,7 +61,7 @@
               <img {{ if .Site.Params.lazyLoading }}data-src="{{ "images/" | relURL }}{{ .Params.image}}" class="lazyload" lazyload="on"{{ else }}src="{{ "images/" | relURL }}{{ .Params.image}}"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
             </div>
             <div class="row middle-xs center-xs overlay">
-              <a href="#modal-{{ .Scratch.Get "$modalID" }}" data-modal="modal-{{ .Scratch.Get "$modal" }}" class="gallery-modal-link"></a>
+                <a href="{{ .Permalink }}" class="open-gallery-page"></a>
               <h2>{{ .Title }}</h2>
             </div>
           </div>
@@ -86,7 +88,7 @@
             <img {{ if .Site.Params.lazyLoading }}data-src="{{ "images/" | relURL }}{{ .Params.image}}" class="lazyload" lazyload="on"{{ else }}src="{{ "images/" | relURL }}{{ .Params.image}}"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
           </div>
           <div class="row middle-xs center-xs overlay">
-            <a href="#modal-{{ .Scratch.Get "$modalID" }}" class="gallery-modal-link"></a>
+              <a href="{{ .Permalink }}" class="open-gallery-page"></a>
             <h2>{{ .Title }}</h2>
           </div>
         </div>

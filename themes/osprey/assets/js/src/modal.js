@@ -7,7 +7,7 @@
       modalBoxes = $$('.modal-box'),
 
       // Link that opens modal
-      openLinks = $$('.gallery-modal-link'),
+      openGalleryPage = $$('.open-gallery-page'),
 
       // Link that closes modal
       closeLinks = $$('.close')
@@ -41,6 +41,14 @@
       modal = $(e.target.getAttribute('href'))
       modal.classList.add('active')
       openModal()
+    }
+  })
+
+    // Open gallery's page
+    openGalleryPage.forEach(function(link) {
+    link.onclick = function(e) {
+      e.preventDefault()
+      window.location.href = e.target.getAttribute('href')
     }
   })
 

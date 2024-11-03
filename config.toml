@@ -50,18 +50,23 @@ disableKinds = ["taxonomy", "taxonomyTerm"] # This theme does not currently use 
   lazyloading = true
 
 [[menu.main]]
-  name = "About"
-  url  = "/#about"
+  name = "Home"
+  url  = "/#home"
   weight = 1
 [[menu.main]]
   name = "Work"
   url  = "/#work"
   weight = 2
 [[menu.main]]
-  name = "Blog"
-  url  = "/#blog"
+  name = "Games"
+  url  = "/#contact"
   weight = 3
 [[menu.main]]
-  name = "Contact"
-  url  = "/#contact"
+  name = "CG"
+  url  = "/#blog"
   weight = 4
+[[menu.main]]
+  name = "About"
+  url  = "/#about"
+  weight = 5
+

@@ -8,10 +8,16 @@
       <!-- About -->
       {{ partial "about.html" . }}
 
-      <!-- Gallery -->
+      <!-- work Gallery -->
       {{ if not (eq (len (where .Site.RegularPages "Section" "gallery")) 0) }}
-        {{ partial "gallery.html" . }}
+        {{ partial "gallery.html" (dict "ctx" . "gallerySection" "work") }}
       {{ end }}
+
+{{/*      <!-- legacy Gallery -->*/}}
+{{/*      {{ if not (eq (len (where .Site.RegularPages "Section" "gallery")) 0) }}*/}}
+{{/*        {{ $gallerySection := "work"}}*/}}
+{{/*        {{ partial "gallery.html" (dict "ctx" . "gallerySection" "gallery") }}*/}}
+{{/*      {{ end }}*/}}
 
       <!-- Blog -->
       {{ if not (eq (len (where .Site.RegularPages "Section" "blog")) 0) }}
@@ -19,7 +25,7 @@
       {{ end }}
 
       <!-- Contact -->
-      {{ partial "contact.html" . }}
+{{/*      {{ partial "contact.html" . }}*/}}
 
     </main>
     {{ partial "footer.html" . }}
