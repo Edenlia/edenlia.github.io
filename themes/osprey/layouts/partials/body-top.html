@@ -11,7 +11,7 @@
     <div class="preview-background">
     {{/*   First line   */}}
       <div class="preview-grid-row preview-row-odd">
-        <div class="preview-item grid-3-2" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
+        <div class="preview-item grid-3-2 from-right" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
           <div class= "preview-img-container">
             <img {{ if .Site.Params.lazyLoading }}data-src="/images/veach_mis.png" class="lazyload" lazyload="on"{{ else }}src="/images/veach_mis.png"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
           </div>
@@ -21,7 +21,7 @@
             <h5>MIS</h5>
           </div>
         </div>
-        <div class="preview-item grid-1-1" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
+        <div class="preview-item grid-1-1 from-right" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
           <div class= "preview-img-container">
             <img {{ if .Site.Params.lazyLoading }}data-src="/images/glossy_cornell_box.png" class="lazyload" lazyload="on"{{ else }}src="/images/glossy_cornell_box.png"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
           </div>
@@ -31,7 +31,7 @@
           </div>
         </div>
 
-        <div class="preview-item grid-4-3" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
+        <div class="preview-item grid-4-3 from-right" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
           <div class= "preview-img-container">
             <img {{ if .Site.Params.lazyLoading }}data-src="/images/hero-image-original.jpg" class="lazyload" lazyload="on"{{ else }}src="/images/hero-image-original.jpg"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
           </div>
@@ -41,43 +41,43 @@
           </div>
         </div>
 
-        <div class="preview-item grid-4-3"></div>
-        <div class="preview-item grid-4-3"></div>
-        <div class="preview-item grid-4-3"></div>
-        <div class="preview-item grid-4-3"></div>
-        <div class="preview-item grid-4-3"></div>
+        <div class="preview-item grid-4-3 from-right"></div>
+        <div class="preview-item grid-4-3 from-right"></div>
+        <div class="preview-item grid-4-3 from-right"></div>
+        <div class="preview-item grid-4-3 from-right"></div>
+        <div class="preview-item grid-4-3 from-right"></div>
 
       </div>
       <div class="preview-grid-row preview-row-even">
-{{/*        <div class="preview-item grid-3-2" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>*/}}
-{{/*          <div class= "preview-img-container">*/}}
-{{/*            <img {{ if .Site.Params.lazyLoading }}data-src="/images/veach_mis.png" class="lazyload" lazyload="on"{{ else }}src="/images/veach_mis.png"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>*/}}
-{{/*          </div>*/}}
-{{/*          <div class="row middle-xs center-xs preview-overlay" style="flex-direction: column;">*/}}
-{{/*            <a href="{{ .Permalink }}" class="open-preview-page"></a>*/}}
-{{/*            <h2>Offline Ray Tracer</h2>*/}}
-{{/*            <h5>MIS</h5>*/}}
-{{/*          </div>*/}}
-{{/*        </div>*/}}
-{{/*        <div class="preview-item grid-1-1" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>*/}}
-{{/*          <div class= "preview-img-container">*/}}
-{{/*            <img {{ if .Site.Params.lazyLoading }}data-src="/images/glossy_cornell_box.png" class="lazyload" lazyload="on"{{ else }}src="/images/glossy_cornell_box.png"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>*/}}
-{{/*          </div>*/}}
-{{/*          <div class="row middle-xs center-xs preview-overlay">*/}}
-{{/*            <a href="{{ .Permalink }}" class="open-preview-page"></a>*/}}
-{{/*            <h2>666</h2>*/}}
-{{/*          </div>*/}}
-{{/*        </div>*/}}
-{{/**/}}
-{{/*        <div class="preview-item grid-4-3" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>*/}}
-{{/*          <div class= "preview-img-container">*/}}
-{{/*            <img {{ if .Site.Params.lazyLoading }}data-src="/images/hero-image-original.jpg" class="lazyload" lazyload="on"{{ else }}src="/images/hero-image-original.jpg"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>*/}}
-{{/*          </div>*/}}
-{{/*          <div class="row middle-xs center-xs preview-overlay">*/}}
-{{/*            <a href="{{ .Permalink }}" class="open-preview-page"></a>*/}}
-{{/*            <h2>666</h2>*/}}
-{{/*          </div>*/}}
-{{/*        </div>*/}}
+        <div class="preview-item grid-3-2 from-left" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
+          <div class= "preview-img-container">
+            <img {{ if .Site.Params.lazyLoading }}data-src="/images/veach_mis.png" class="lazyload" lazyload="on"{{ else }}src="/images/veach_mis.png"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
+          </div>
+          <div class="row middle-xs center-xs preview-overlay" style="flex-direction: column;">
+            <a href="{{ .Permalink }}" class="open-preview-page"></a>
+            <h2>Offline Ray Tracer</h2>
+            <h5>MIS</h5>
+          </div>
+        </div>
+        <div class="preview-item grid-1-1 from-left" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
+          <div class= "preview-img-container">
+            <img {{ if .Site.Params.lazyLoading }}data-src="/images/glossy_cornell_box.png" class="lazyload" lazyload="on"{{ else }}src="/images/glossy_cornell_box.png"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
+          </div>
+          <div class="row middle-xs center-xs preview-overlay">
+            <a href="{{ .Permalink }}" class="open-preview-page"></a>
+            <h2>666</h2>
+          </div>
+        </div>
+
+        <div class="preview-item grid-4-3 from-left" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
+          <div class= "preview-img-container">
+            <img {{ if .Site.Params.lazyLoading }}data-src="/images/hero-image-original.jpg" class="lazyload" lazyload="on"{{ else }}src="/images/hero-image-original.jpg"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
+          </div>
+          <div class="row middle-xs center-xs preview-overlay">
+            <a href="{{ .Permalink }}" class="open-preview-page"></a>
+            <h2>666</h2>
+          </div>
+        </div>
       </div>
       <div class="preview-grid-row preview-row-odd">Item 3</div>
     </div>
