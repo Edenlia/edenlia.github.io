@@ -2,8 +2,66 @@
     var $ = document.querySelector.bind(document),
         $$ = document.querySelectorAll.bind(document)
 
+    const preview_row_1 = $('.preview-row-1')
+    const preview_row_2 = $('.preview-row-2')
+    const preview_row_3 = $('.preview-row-3')
 
-    const preview_items = $$('.preview-item')
+    let real_preview_items = $$('.preview-item')
+
+    console.log(real_preview_items.length)
+
+    // 0 to real_preview_items.length - 1
+    let indices = Array.from({length: real_preview_items.length}, (v, k) => k)
+
+    // Shuffle the indices
+    for (let i = indices.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [indices[i], indices[j]] = [indices[j], indices[i]];
+    }
+
+    for (let i = 0; i < indices.length; i++) {
+        let index = indices[i]
+        let item = real_preview_items[index]
+        if (i % 3 === 0) {
+            // first row need class "from-right"
+            item.classList.add('from-right')
+            preview_row_1.appendChild(item)
+        }
+        else if (i % 3 === 1) {
+            // second row need class "from-left
+            item.classList.add('from-left')
+            preview_row_2.appendChild(item)
+        }
+        else {
+            // third row need class "from-right"
+            item.classList.add('from-right')
+            preview_row_3.appendChild(item)
+        }
+    }
+
+    // Reassign real_preview_items, make sure the sort is correct
+    real_preview_items = $$('.preview-item')
+
+    // After shuffling all real preview items, add preview placeholder items
+    // Each row has 5 placeholders to make sure the real preview items are correct
+    for (let i = 0; i < 5; i++) {
+        let placeholder = document.createElement('div')
+        placeholder.classList.add('preview-item', 'grid-16-9', 'from-right', 'placeholder')
+        preview_row_1.appendChild(placeholder)
+    }
+
+    for (let i = 0; i < 5; i++) {
+        let placeholder = document.createElement('div')
+        placeholder.classList.add('preview-item', 'grid-16-9', 'from-left', 'placeholder')
+        preview_row_2.appendChild(placeholder)
+    }
+
+    for (let i = 0; i < 5; i++) {
+        let placeholder = document.createElement('div')
+        placeholder.classList.add('preview-item', 'grid-16-9', 'from-right', 'placeholder')
+        preview_row_3.appendChild(placeholder)
+    }
+
     const offsetXRight = 600; // 目标位置（可以根据需要调整）
     const offsetXLeft = -600;
     const targetX = 0;
@@ -14,10 +72,8 @@
         return start + (end - start) * t;
     }
 
-    console.log(preview_items.length)
-
-    for (let i = 0; i < preview_items.length; i++) {
-        let item = preview_items[i];
+    for (let i = 0; i < real_preview_items.length; i++) {
+        let item = real_preview_items[i];
         let offsetX;
         if (item.classList.contains('from-right')) {
             offsetX = offsetXRight;
@@ -33,9 +89,9 @@
     }
 
     function animate() {
-        console.log('animate')
-        if (currentItemIndex >= preview_items.length) return;
-        let item = preview_items[currentItemIndex];
+        // console.log('animate')
+        if (currentItemIndex >= real_preview_items.length) return;
+        let item = real_preview_items[currentItemIndex];
         let animIndex = currentItemIndex;
         let offsetX;
         if (item.classList.contains('from-right')) {
@@ -67,13 +123,13 @@
                 overHalf = currentX > (startX + targetX) / 2;
             }
 
-            console.log(overHalf)
+            // console.log(overHalf)
 
             // 当当前位置达到一半时，启动下一个item的动画
             if (overHalf) {
                 if (currentItemIndex === animIndex) {
                     currentItemIndex++;
-                    console.log("start next animate")
+                    // console.log("start next animate")
                     animate(); // 启动下一个item的动画
                 }
             }

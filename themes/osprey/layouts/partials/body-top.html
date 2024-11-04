@@ -8,9 +8,13 @@
 {{ if .IsHome }}
   {{ $techPages := (where .Site.RegularPages "Section" "tech") }}
   {{ $workPages := (where .Site.RegularPages "Section" "work") }}
-  {{ $gamePages := (where .Site.RegularPages "Section" "game") }}
+  {{ $gamePages := (where .Site.RegularPages "Section" "games") }}
 
   {{ $previewPages := slice }}
+
+  {{ range $gamePages }}
+    {{ $previewPages = $previewPages | append . }}
+  {{ end }}
 
   {{ range $techPages }}
     {{ $previewPages = $previewPages | append . }}
@@ -20,103 +24,97 @@
     {{ $previewPages = $previewPages | append . }}
   {{ end }}
 
-  {{ range $gamePages }}
-    {{ $previewPages = $previewPages | append . }}
-  {{ end }}
-
   <header class="row middle-xs center-xs">
     {{/*    background, use gallery item*/}}
     <div class="preview-background">
-    {{/*   First line   */}}
-      <div class="preview-grid-row preview-row-odd">
-        {{ range $i, $page := $previewPages }}
-          {{range $j, $value := $page.Params.preview_images}}
-            {{$image := $value}}
-            {{$text := index $page.Params.preview_text $j}}
-            {{$aspect_ratio := index $page.Params.preview_aspect_ratios $j}}
+      {{ range $i, $page := $previewPages }}
+        {{range $j, $value := $page.Params.preview_images}}
+          {{$image := $value}}
+          {{$text := index $page.Params.preview_text $j}}
+          {{$aspect_ratio := index $page.Params.preview_aspect_ratios $j}}
 
-            <div class="preview-item from-right" onclick {{ if $page.Params.color }}style="background-color:{{ $page.Params.color }}; aspect-ratio: {{$aspect_ratio}}"{{ end }}>
-              <div class= "preview-img-container">
-                <img {{ if $page.Site.Params.lazyLoading }}data-src="/images/{{$image}}" class="lazyload" lazyload="on" {{ else }}src="/images/{{$image}}"{{ end }} {{ if $page.Params.alt }}alt="{{ $page.Params.alt }}"{{ end }}>
-              </div>
-              <div class="row middle-xs center-xs preview-overlay" style="flex-direction: column;">
-                <a href="{{ $page.Permalink }}" class="open-preview-page"></a>
-                <h3>{{ $page.Params.title }}</h3>
-                <h5>{{ $text }}</h5>
-              </div>
+          <div class="preview-item" onclick {{ if $page.Params.color }}style="background-color:{{ $page.Params.color }}; aspect-ratio: {{$aspect_ratio}}"{{ end }}>
+            <div class= "preview-img-container">
+              <img {{ if $page.Site.Params.lazyLoading }}data-src="/images/{{$image}}" class="lazyload" lazyload="on" {{ else }}src="/images/{{$image}}"{{ end }} {{ if $page.Params.alt }}alt="{{ $page.Params.alt }}"{{ end }}>
             </div>
-          {{ end }}
+            <div class="row middle-xs center-xs preview-overlay" style="flex-direction: column;">
+              <a href="{{ $page.Permalink }}" class="open-preview-page"></a>
+              <h3>{{ $page.Params.title }}</h3>
+              <h5>{{ $text }}</h5>
+            </div>
+          </div>
         {{ end }}
+      {{ end }}
 
-
-
-        <div class="preview-item grid-3-2 from-right" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
-          <div class= "preview-img-container">
-            <img {{ if .Site.Params.lazyLoading }}data-src="/images/veach_mis.png" class="lazyload" lazyload="on" {{ else }}src="/images/Dirt/veach_mis.png"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
-          </div>
-          <div class="row middle-xs center-xs preview-overlay" style="flex-direction: column;">
-            <a href="{{ .Permalink }}" class="open-preview-page"></a>
-            <h2>Offline Ray Tracer</h2>
-            <h5>MIS</h5>
-          </div>
-        </div>
-        <div class="preview-item grid-1-1 from-right" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
-          <div class= "preview-img-container">
-            <img {{ if .Site.Params.lazyLoading }}data-src="/images/glossy_cornell_box.png" class="lazyload" lazyload="on" {{ else }}src="/images/Dirt/glossy_cornell_box.png"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
-          </div>
-          <div class="row middle-xs center-xs preview-overlay">
-            <a href="{{ .Permalink }}" class="open-preview-page"></a>
-            <h2>666</h2>
-          </div>
-        </div>
-
-        <div class="preview-item grid-4-3 from-right" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
-          <div class= "preview-img-container">
-            <img {{ if .Site.Params.lazyLoading }}data-src="/images/hero-image-original.jpg" class="lazyload" lazyload="on"{{ else }}src="/images/hero-image-original.jpg"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
-          </div>
-          <div class="row middle-xs center-xs preview-overlay">
-            <a href="{{ .Permalink }}" class="open-preview-page"></a>
-            <h2>666</h2>
-          </div>
-        </div>
-
-        <div class="preview-item grid-16-9 from-right"></div>
-        <div class="preview-item grid-16-9 from-right"></div>
-        <div class="preview-item grid-16-9 from-right"></div>
+    {{/*   First line   */}}
+      <div class="preview-grid-row preview-row-odd preview-row-1">
+{{/*        <div class="preview-item grid-3-2 from-right" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>*/}}
+{{/*          <div class= "preview-img-container">*/}}
+{{/*            <img {{ if .Site.Params.lazyLoading }}data-src="/images/veach_mis.png" class="lazyload" lazyload="on" {{ else }}src="/images/Dirt/veach_mis.png"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>*/}}
+{{/*          </div>*/}}
+{{/*          <div class="row middle-xs center-xs preview-overlay" style="flex-direction: column;">*/}}
+{{/*            <a href="{{ .Permalink }}" class="open-preview-page"></a>*/}}
+{{/*            <h2>Offline Ray Tracer</h2>*/}}
+{{/*            <h5>MIS</h5>*/}}
+{{/*          </div>*/}}
+{{/*        </div>*/}}
+{{/*        <div class="preview-item grid-1-1 from-right" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>*/}}
+{{/*          <div class= "preview-img-container">*/}}
+{{/*            <img {{ if .Site.Params.lazyLoading }}data-src="/images/glossy_cornell_box.png" class="lazyload" lazyload="on" {{ else }}src="/images/Dirt/glossy_cornell_box.png"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>*/}}
+{{/*          </div>*/}}
+{{/*          <div class="row middle-xs center-xs preview-overlay">*/}}
+{{/*            <a href="{{ .Permalink }}" class="open-preview-page"></a>*/}}
+{{/*            <h2>666</h2>*/}}
+{{/*          </div>*/}}
+{{/*        </div>*/}}
+{{/**/}}
+{{/*        <div class="preview-item grid-4-3 from-right" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>*/}}
+{{/*          <div class= "preview-img-container">*/}}
+{{/*            <img {{ if .Site.Params.lazyLoading }}data-src="/images/hero-image-original.jpg" class="lazyload" lazyload="on"{{ else }}src="/images/hero-image-original.jpg"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>*/}}
+{{/*          </div>*/}}
+{{/*          <div class="row middle-xs center-xs preview-overlay">*/}}
+{{/*            <a href="{{ .Permalink }}" class="open-preview-page"></a>*/}}
+{{/*            <h2>666</h2>*/}}
+{{/*          </div>*/}}
+{{/*        </div>*/}}
+{{/**/}}
+{{/*        <div class="preview-item grid-16-9 from-right"></div>*/}}
+{{/*        <div class="preview-item grid-16-9 from-right"></div>*/}}
+{{/*        <div class="preview-item grid-16-9 from-right"></div>*/}}
 
       </div>
-      <div class="preview-grid-row preview-row-even">
-        <div class="preview-item grid-3-2 from-left" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
-          <div class= "preview-img-container">
-            <img {{ if .Site.Params.lazyLoading }}data-src="/images/veach_mis.png" class="lazyload" lazyload="on" {{ else }}src="/images/Dirt/veach_mis.png"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
-          </div>
-          <div class="row middle-xs center-xs preview-overlay" style="flex-direction: column;">
-            <a href="{{ .Permalink }}" class="open-preview-page"></a>
-            <h2>Offline Ray Tracer</h2>
-            <h5>MIS</h5>
-          </div>
-        </div>
-        <div class="preview-item grid-1-1 from-left" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
-          <div class= "preview-img-container">
-            <img {{ if .Site.Params.lazyLoading }}data-src="/images/glossy_cornell_box.png" class="lazyload" lazyload="on" {{ else }}src="/images/Dirt/glossy_cornell_box.png"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
-          </div>
-          <div class="row middle-xs center-xs preview-overlay">
-            <a href="{{ .Permalink }}" class="open-preview-page"></a>
-            <h2>666</h2>
-          </div>
-        </div>
-
-        <div class="preview-item grid-4-3 from-left" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
-          <div class= "preview-img-container">
-            <img {{ if .Site.Params.lazyLoading }}data-src="/images/hero-image-original.jpg" class="lazyload" lazyload="on"{{ else }}src="/images/hero-image-original.jpg"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
-          </div>
-          <div class="row middle-xs center-xs preview-overlay">
-            <a href="{{ .Permalink }}" class="open-preview-page"></a>
-            <h2>666</h2>
-          </div>
-        </div>
+      <div class="preview-grid-row preview-row-even preview-row-2">
+{{/*        <div class="preview-item grid-3-2 from-left" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>*/}}
+{{/*          <div class= "preview-img-container">*/}}
+{{/*            <img {{ if .Site.Params.lazyLoading }}data-src="/images/veach_mis.png" class="lazyload" lazyload="on" {{ else }}src="/images/Dirt/veach_mis.png"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>*/}}
+{{/*          </div>*/}}
+{{/*          <div class="row middle-xs center-xs preview-overlay" style="flex-direction: column;">*/}}
+{{/*            <a href="{{ .Permalink }}" class="open-preview-page"></a>*/}}
+{{/*            <h2>Offline Ray Tracer</h2>*/}}
+{{/*            <h5>MIS</h5>*/}}
+{{/*          </div>*/}}
+{{/*        </div>*/}}
+{{/*        <div class="preview-item grid-1-1 from-left" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>*/}}
+{{/*          <div class= "preview-img-container">*/}}
+{{/*            <img {{ if .Site.Params.lazyLoading }}data-src="/images/glossy_cornell_box.png" class="lazyload" lazyload="on" {{ else }}src="/images/Dirt/glossy_cornell_box.png"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>*/}}
+{{/*          </div>*/}}
+{{/*          <div class="row middle-xs center-xs preview-overlay">*/}}
+{{/*            <a href="{{ .Permalink }}" class="open-preview-page"></a>*/}}
+{{/*            <h2>666</h2>*/}}
+{{/*          </div>*/}}
+{{/*        </div>*/}}
+{{/**/}}
+{{/*        <div class="preview-item grid-4-3 from-left" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>*/}}
+{{/*          <div class= "preview-img-container">*/}}
+{{/*            <img {{ if .Site.Params.lazyLoading }}data-src="/images/hero-image-original.jpg" class="lazyload" lazyload="on"{{ else }}src="/images/hero-image-original.jpg"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>*/}}
+{{/*          </div>*/}}
+{{/*          <div class="row middle-xs center-xs preview-overlay">*/}}
+{{/*            <a href="{{ .Permalink }}" class="open-preview-page"></a>*/}}
+{{/*            <h2>666</h2>*/}}
+{{/*          </div>*/}}
+{{/*        </div>*/}}
       </div>
-      <div class="preview-grid-row preview-row-odd">Item 3</div>
+      <div class="preview-grid-row preview-row-odd preview-row-3"></div>
     </div>
     <div class="col-xs-12" style="pointer-events: none;">
       <div class="row middle-xs center-xs">
