@@ -1,9 +1,14 @@
----
-date: 2023-10-20T10:58:08-03:00
-description: "Minecraft shader based on Optifine"
-featured_image: "/images/Volcan/SSR.png"
-title: "Volcan"
----
++++
+date = "2017-05-15T21:52:57-07:00"
+title = "Volcan: Minecraft Shader"
+image = "Volcan/SSR.png"
+alt = ""
+color = "#060D14"
+description = "Minecraft shader based on Optifine"
+preview_images = ["Volcan/pcss.png"]
+preview_text = ["PCSS shadows"]
+preview_aspect_ratios = [1.777]
++++
 
 **Volcan** is a Minecraft shader based on [Optifine](https://github.com/sp614x/optifine).
 

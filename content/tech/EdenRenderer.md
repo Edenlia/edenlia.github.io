@@ -1,10 +1,16 @@
----
-date: 2023-09-13T11:15:58-04:00
-description: "Software renderer"
-featured_image: "/images/EdenRenderer/Dragon.png"
-tags: []
-title: "EdenRenderer"
----
++++
+date = "2017-05-15T21:52:57-07:00"
+title = "EdenRenderer: Software Rasterizer"
+image = "EdenRenderer/Dragon.png"
+alt = ""
+color = "#060D14"
+description = "Software renderer"
+preview_images = []
+preview_text = []
+preview_aspect_ratios = []
+
++++
+
 
 EdenRenderer is a software renderer that written with C++, using GLUT for display.
 
