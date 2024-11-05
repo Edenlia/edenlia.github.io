@@ -5,9 +5,9 @@ image = "D3DRT/display.png"
 alt = ""
 color = "#060D14"
 description = "Ray Tracing Renderer based on DirectX12 Raytracing API"
-preview_images = []
-preview_text = []
-preview_aspect_ratios = []
+preview_images = ["D3DRT/sobol.png"]
+preview_text = ["Low Discrepancy Sequence Sampling: Sobol"]
+preview_aspect_ratios = [1.777]
 
 +++
 
