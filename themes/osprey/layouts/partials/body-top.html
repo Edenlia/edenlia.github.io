@@ -26,12 +26,25 @@
 
   <header class="row middle-xs center-xs">
     {{/*    background, use gallery item*/}}
-    <div class="preview-background">
+    <div class="preview-background preview-height">
       {{ range $i, $page := $previewPages }}
-        {{range $j, $value := $page.Params.preview_images}}
-          {{$image := $value}}
-          {{$text := index $page.Params.preview_text $j}}
-          {{$aspect_ratio := index $page.Params.preview_aspect_ratios $j}}
+        {{/*    Make sure no project dominate    */}}
+        {{ $maxPageImages := 3}}
+        {{ $combined := slice }}
+
+        {{/* 构建组合的数组，每项包含 image, text, 和 aspect_ratio */}}
+        {{ range $j, $image := $page.Params.preview_images }}
+          {{ $text := index $page.Params.preview_text $j }}
+          {{ $aspect_ratio := index $page.Params.preview_aspect_ratios $j }}
+          {{ $combined = $combined | append (dict "image" $image "text" $text "aspect_ratio" $aspect_ratio) }}
+        {{ end }}
+
+        {{ $shuffled := first $maxPageImages (shuffle $combined) }}
+
+        {{range $item := $shuffled }}
+          {{ $image := $item.image }}
+          {{ $text := $item.text }}
+          {{ $aspect_ratio := $item.aspect_ratio }}
 
           <div class="preview-item" onclick {{ if $page.Params.color }}style="background-color:{{ $page.Params.color }}; aspect-ratio: {{$aspect_ratio}}"{{ end }}>
             <div class= "preview-img-container">
@@ -116,11 +129,11 @@
       </div>
       <div class="preview-grid-row preview-row-odd preview-row-3"></div>
     </div>
-    <div class="col-xs-12" style="pointer-events: none;">
-      <div class="row middle-xs center-xs">
+    <div class="col-xs-12 preview-main" style="background-color: rgba(0, 0, 0, 0.9);">
+      <div class="row middle-xs center-xs preview-name" style="padding-top: 30px;">
         <div class="col-xs-12"><img {{ if .Site.Params.lazyLoading }}data-src="{{ .Site.Params.logoBig }}" lazyload="on"{{ else }}src="{{ .Site.Params.logoBig }}"{{ end }} alt="{{ .Site.Title }}" class="home-logo {{ if .Site.Params.lazyLoading }}lazyload{{ end }}"></div>
       </div>
-      <div class="row middle-xs center-xs">
+      <div class="row middle-xs center-xs preview-name" style="">
         <div class="col-xs-12">
           <h1>{{ .Site.Params.tagline }}<span class="cursor">|</span></h1>
         </div>

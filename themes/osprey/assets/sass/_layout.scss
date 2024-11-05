@@ -48,6 +48,13 @@ header {
 
   $preview-bg-height: calc(100% - #{$vertical-rhythm * 2}); // 100% - nav height
 
+  // Current preview main's center is 50% of the screen height
+  // But we need it be 50% of the screen height minus the nav height
+  // Also keep the preview height (depend on children)
+  .preview-main {
+    margin-bottom: $vertical-rhythm * 2;
+  }
+
   .preview-background {
     display: grid;
     grid-template-rows: repeat(3, 1fr); /* 创建三行，行高相等 */
@@ -57,6 +64,7 @@ header {
     left: 0;
     width: 100%;
     height: $preview-bg-height;
+    //height: $preview-bg-height;
     z-index: 0; /* 将背景层放在内容后面 */
   }
 

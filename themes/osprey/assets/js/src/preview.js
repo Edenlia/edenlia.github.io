@@ -88,6 +88,39 @@
         item.style.opacity = 0;
     }
 
+
+    // Preview main blend in, opacity from 0 to 1
+    let preview_main = $('.preview-main')
+    preview_main.style.opacity = 0;
+
+
+    function animate_main() {
+        let currentOpacity = 0;
+        let targetOpacity = 1;
+        let mainSpeed = 0.012;
+
+        function move() {
+            currentOpacity = lerp(currentOpacity, targetOpacity, mainSpeed);
+
+            // console.log(currentOpacity)
+            preview_main.style.opacity = currentOpacity;
+
+            if (currentOpacity < 0.999) {
+                requestAnimationFrame(move);
+            }
+            else {
+                preview_main.style.opacity = targetOpacity;
+            }
+        }
+
+        move();
+    }
+
+    function animate_names() {
+
+    }
+
+
     function animate() {
         // console.log('animate')
         if (currentItemIndex >= real_preview_items.length) return;
@@ -137,6 +170,14 @@
             // 检查是否接近目标位置，避免无限接近
             if (Math.abs(currentX - targetX) > 0.1) {
                 requestAnimationFrame(move);
+            }
+            else {
+                // The last item finished animation
+                // Start the main animation
+                if (animIndex === real_preview_items.length - 1) {
+                    animate_main();
+                }
+
             }
         }
 

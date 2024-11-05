@@ -5,9 +5,9 @@ image = "GaussianSplattingStudio/teaser.png"
 alt = ""
 color = "#060D14"
 description = ""
-preview_images = []
-preview_text = []
-preview_aspect_ratios = []
+preview_images = ["GaussianSplattingStudio/teaser.png"]
+preview_text = ["Multiple Differentiable Output"]
+preview_aspect_ratios = [1.777]
 
 +++
 
