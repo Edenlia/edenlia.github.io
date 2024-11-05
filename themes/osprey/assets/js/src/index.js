@@ -4,6 +4,14 @@
 
       menuActive = false
 
+  let nav_toggles = $$('nav > .nav-toggle')
+
+  for (let i = 0; i < nav_toggles.length; i++) {
+    nav_toggles[i].style.visibility = 'visible'
+    nav_toggles[i].classList.add('show')
+    nav_toggles[i].classList.remove('hide')
+  }
+
   // Nav starts at bottom then is fixed to top
   // Logo and hamburger menus fade in and out
   window.onscroll = function() {
@@ -11,10 +19,11 @@
         windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight,
         navHeight = $('nav').clientHeight
 
+
     if (scrollPosition > windowHeight - navHeight) {
       // Nav is fixed to top
       $('nav').classList.add('nav-fixed')
-      $$('nav > .logo, nav > .nav-toggle').forEach(function(el) {
+      $$('nav > .logo').forEach(function(el) {
         el.style.visibility = 'visible'
         el.classList.add('show')
         el.classList.remove('hide')
@@ -22,7 +31,7 @@
     } else {
       // Nav is not fixed
       $('nav').classList.remove('nav-fixed')
-      $$('nav > .logo, nav > .nav-toggle').forEach(function(el) {
+      $$('nav > .logo').forEach(function(el) {
         el.style.visibility = 'hidden'
         el.classList.add('hide')
         el.classList.remove('show')

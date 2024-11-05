@@ -3,32 +3,32 @@
   {{ partial "head.html" . }}
   <body>
     {{ partial "body-top" . }}
-    <main>
+{{/*    <main>*/}}
 
-      <!-- About -->
-      {{ partial "about.html" . }}
-
-      <!-- work Gallery -->
-      {{ if not (eq (len (where .Site.RegularPages "Section" "gallery")) 0) }}
-        {{ partial "gallery.html" (dict "ctx" . "gallerySection" "work") }}
-      {{ end }}
-
+{{/*      <!-- About -->*/}}
+{{/*      {{ partial "about.html" . }}*/}}
+{{/**/}}
+{{/*      <!-- work Gallery -->*/}}
+{{/*      {{ if not (eq (len (where .Site.RegularPages "Section" "gallery")) 0) }}*/}}
+{{/*        {{ partial "gallery.html" (dict "ctx" . "gallerySection" "work") }}*/}}
+{{/*      {{ end }}*/}}
+{{/**/}}
 {{/*      <!-- legacy Gallery -->*/}}
 {{/*      {{ if not (eq (len (where .Site.RegularPages "Section" "gallery")) 0) }}*/}}
 {{/*        {{ $gallerySection := "work"}}*/}}
 {{/*        {{ partial "gallery.html" (dict "ctx" . "gallerySection" "gallery") }}*/}}
 {{/*      {{ end }}*/}}
-
-      <!-- Blog -->
-      {{ if not (eq (len (where .Site.RegularPages "Section" "blog")) 0) }}
-        {{ partial "blog.html" . }}
-      {{ end }}
-
-      <!-- Contact -->
+{{/**/}}
+{{/*      <!-- Blog -->*/}}
+{{/*      {{ if not (eq (len (where .Site.RegularPages "Section" "blog")) 0) }}*/}}
+{{/*        {{ partial "blog.html" . }}*/}}
+{{/*      {{ end }}*/}}
+{{/**/}}
+{{/*      <!-- Contact -->*/}}
 {{/*      {{ partial "contact.html" . }}*/}}
-
-    </main>
-    {{ partial "footer.html" . }}
+{{/**/}}
+{{/*    </main>*/}}
+{{/*    {{ partial "footer.html" . }}*/}}
     {{ partial "body-bottom" . }}
   </body>
 </html>

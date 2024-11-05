@@ -44,6 +44,13 @@ header {
 
   h1 {
     font-family: $font-body;
+    padding-top: 30px;
+    color: $accent;
+  }
+
+  h3 {
+    font-family: $font-body;
+    padding-bottom: 30px;
   }
 
   $preview-bg-height: calc(100% - #{$vertical-rhythm * 2}); // 100% - nav height

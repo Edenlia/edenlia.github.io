@@ -41,7 +41,7 @@
 
 nav {
   position: absolute;
-  z-index: 100;
+  z-index: 103;
   bottom: 0;
   width: 100%;
   height: $vertical-rhythm * 2;
@@ -90,6 +90,7 @@ nav {
   transform: translate(0, 0);
   transition: .25s ease-out;
   background-color: $rich-black;
+  z-index: 102;
 
   a {
     color: $white;
