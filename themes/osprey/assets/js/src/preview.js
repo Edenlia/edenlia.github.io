@@ -2,41 +2,54 @@
     var $ = document.querySelector.bind(document),
         $$ = document.querySelectorAll.bind(document)
 
+    function shuffle(items) {
+        // 0 to items.length - 1
+        let indices = Array.from({length: items.length}, (v, k) => k)
+
+        for (let i = indices.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [indices[i], indices[j]] = [indices[j], indices[i]];
+        }
+
+        let shuffledItems = []
+        for (let i = 0; i < indices.length; i++) {
+            let index = indices[i]
+            shuffledItems.push(items[index])
+        }
+
+        return shuffledItems
+    }
+
     const preview_row_1 = $('.preview-row-1')
-    const preview_row_2 = $('.preview-row-2')
+    // const preview_row_2 = $('.preview-row-2')
     const preview_row_3 = $('.preview-row-3')
 
     let real_preview_items = $$('.preview-item')
 
-    console.log(real_preview_items.length)
+    let real_game_items = Array.from(real_preview_items).filter(item =>
+        item.classList.contains('game-related')
+    );
 
-    // 0 to real_preview_items.length - 1
-    let indices = Array.from({length: real_preview_items.length}, (v, k) => k)
+    let real_cg_items = Array.from(real_preview_items).filter(item =>
+        item.classList.contains('cg-related')
+    );
 
-    // Shuffle the indices
-    for (let i = indices.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [indices[i], indices[j]] = [indices[j], indices[i]];
+    // console.log(real_preview_items.length)
+
+    // Shuffle game-related and cg-related items separately
+    real_game_items = shuffle(real_game_items)
+    real_cg_items = shuffle(real_cg_items)
+
+    for (let i = 0; i < real_game_items.length; i++) {
+        let item = real_game_items[i]
+        item.classList.add('from-right')
+        preview_row_1.appendChild(item)
     }
 
-    for (let i = 0; i < indices.length; i++) {
-        let index = indices[i]
-        let item = real_preview_items[index]
-        if (i % 3 === 0) {
-            // first row need class "from-right"
-            item.classList.add('from-right')
-            preview_row_1.appendChild(item)
-        }
-        else if (i % 3 === 1) {
-            // second row need class "from-left
-            item.classList.add('from-left')
-            preview_row_2.appendChild(item)
-        }
-        else {
-            // third row need class "from-right"
-            item.classList.add('from-right')
-            preview_row_3.appendChild(item)
-        }
+    for (let i = 0; i < real_cg_items.length; i++) {
+        let item = real_cg_items[i]
+        item.classList.add('from-left')
+        preview_row_3.appendChild(item)
     }
 
     // Reassign real_preview_items, make sure the sort is correct
@@ -53,12 +66,6 @@
     for (let i = 0; i < 5; i++) {
         let placeholder = document.createElement('div')
         placeholder.classList.add('preview-item', 'grid-16-9', 'from-left', 'placeholder')
-        preview_row_2.appendChild(placeholder)
-    }
-
-    for (let i = 0; i < 5; i++) {
-        let placeholder = document.createElement('div')
-        placeholder.classList.add('preview-item', 'grid-16-9', 'from-right', 'placeholder')
         preview_row_3.appendChild(placeholder)
     }
 

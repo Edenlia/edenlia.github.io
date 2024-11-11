@@ -10,24 +10,28 @@
   {{ $workPages := (where .Site.RegularPages "Section" "work") }}
   {{ $gamePages := (where .Site.RegularPages "Section" "games") }}
 
-  {{ $previewPages := slice }}
+  {{/* First Line show game related pages*/}}
+  {{ $preivewGamePages := slice }}
+  {{/* Third Line show all cg, tech pages*/}}
+  {{ $preivewCGPages := slice }}
 
   {{ range $gamePages }}
-    {{ $previewPages = $previewPages | append . }}
+    {{ $preivewGamePages = $preivewGamePages | append . }}
   {{ end }}
 
   {{ range $techPages }}
-    {{ $previewPages = $previewPages | append . }}
+    {{ $preivewCGPages = $preivewCGPages | append . }}
   {{ end }}
 
   {{ range $workPages }}
-    {{ $previewPages = $previewPages | append . }}
+    {{ $preivewGamePages = $preivewGamePages | append . }}
   {{ end }}
 
   <header class="row middle-xs center-xs">
-    {{/*    background, use gallery item*/}}
+    {{/*    background, use gallery item  */}}
     <div class="preview-background preview-height">
-      {{ range $i, $page := $previewPages }}
+      {{/*   First line's game pages   */}}
+      {{ range $i, $page := $preivewGamePages }}
         {{/*    Make sure no project dominate    */}}
         {{ $maxPageImages := 3}}
         {{ $combined := slice }}
@@ -46,7 +50,7 @@
           {{ $text := $item.text }}
           {{ $aspect_ratio := $item.aspect_ratio }}
 
-          <div class="preview-item" onclick {{ if $page.Params.color }}style="background-color:{{ $page.Params.color }}; aspect-ratio: {{$aspect_ratio}}"{{ end }}>
+          <div class="preview-item game-related" onclick {{ if $page.Params.color }}style="background-color:{{ $page.Params.color }}; aspect-ratio: {{$aspect_ratio}}"{{ end }}>
             <div class= "preview-img-container">
               <img {{ if $page.Site.Params.lazyLoading }}data-src="/images/{{$image}}" class="lazyload" lazyload="on" {{ else }}src="/images/{{$image}}"{{ end }} {{ if $page.Params.alt }}alt="{{ $page.Params.alt }}"{{ end }}>
             </div>
@@ -59,75 +63,43 @@
         {{ end }}
       {{ end }}
 
-    {{/*   First line   */}}
-      <div class="preview-grid-row preview-row-odd preview-row-1">
-{{/*        <div class="preview-item grid-3-2 from-right" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>*/}}
-{{/*          <div class= "preview-img-container">*/}}
-{{/*            <img {{ if .Site.Params.lazyLoading }}data-src="/images/veach_mis.png" class="lazyload" lazyload="on" {{ else }}src="/images/Dirt/veach_mis.png"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>*/}}
-{{/*          </div>*/}}
-{{/*          <div class="row middle-xs center-xs preview-overlay" style="flex-direction: column;">*/}}
-{{/*            <a href="{{ .Permalink }}" class="open-preview-page"></a>*/}}
-{{/*            <h2>Offline Ray Tracer</h2>*/}}
-{{/*            <h5>MIS</h5>*/}}
-{{/*          </div>*/}}
-{{/*        </div>*/}}
-{{/*        <div class="preview-item grid-1-1 from-right" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>*/}}
-{{/*          <div class= "preview-img-container">*/}}
-{{/*            <img {{ if .Site.Params.lazyLoading }}data-src="/images/glossy_cornell_box.png" class="lazyload" lazyload="on" {{ else }}src="/images/Dirt/glossy_cornell_box.png"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>*/}}
-{{/*          </div>*/}}
-{{/*          <div class="row middle-xs center-xs preview-overlay">*/}}
-{{/*            <a href="{{ .Permalink }}" class="open-preview-page"></a>*/}}
-{{/*            <h2>666</h2>*/}}
-{{/*          </div>*/}}
-{{/*        </div>*/}}
-{{/**/}}
-{{/*        <div class="preview-item grid-4-3 from-right" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>*/}}
-{{/*          <div class= "preview-img-container">*/}}
-{{/*            <img {{ if .Site.Params.lazyLoading }}data-src="/images/hero-image-original.jpg" class="lazyload" lazyload="on"{{ else }}src="/images/hero-image-original.jpg"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>*/}}
-{{/*          </div>*/}}
-{{/*          <div class="row middle-xs center-xs preview-overlay">*/}}
-{{/*            <a href="{{ .Permalink }}" class="open-preview-page"></a>*/}}
-{{/*            <h2>666</h2>*/}}
-{{/*          </div>*/}}
-{{/*        </div>*/}}
-{{/**/}}
-{{/*        <div class="preview-item grid-16-9 from-right"></div>*/}}
-{{/*        <div class="preview-item grid-16-9 from-right"></div>*/}}
-{{/*        <div class="preview-item grid-16-9 from-right"></div>*/}}
+      {{/*   Third line's cg pages   */}}
+      {{ range $i, $page := $preivewCGPages }}
+        {{/*    Make sure no project dominate    */}}
+        {{ $maxPageImages := 3}}
+        {{ $combined := slice }}
 
-      </div>
-      <div class="preview-grid-row preview-row-even preview-row-2">
-{{/*        <div class="preview-item grid-3-2 from-left" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>*/}}
-{{/*          <div class= "preview-img-container">*/}}
-{{/*            <img {{ if .Site.Params.lazyLoading }}data-src="/images/veach_mis.png" class="lazyload" lazyload="on" {{ else }}src="/images/Dirt/veach_mis.png"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>*/}}
-{{/*          </div>*/}}
-{{/*          <div class="row middle-xs center-xs preview-overlay" style="flex-direction: column;">*/}}
-{{/*            <a href="{{ .Permalink }}" class="open-preview-page"></a>*/}}
-{{/*            <h2>Offline Ray Tracer</h2>*/}}
-{{/*            <h5>MIS</h5>*/}}
-{{/*          </div>*/}}
-{{/*        </div>*/}}
-{{/*        <div class="preview-item grid-1-1 from-left" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>*/}}
-{{/*          <div class= "preview-img-container">*/}}
-{{/*            <img {{ if .Site.Params.lazyLoading }}data-src="/images/glossy_cornell_box.png" class="lazyload" lazyload="on" {{ else }}src="/images/Dirt/glossy_cornell_box.png"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>*/}}
-{{/*          </div>*/}}
-{{/*          <div class="row middle-xs center-xs preview-overlay">*/}}
-{{/*            <a href="{{ .Permalink }}" class="open-preview-page"></a>*/}}
-{{/*            <h2>666</h2>*/}}
-{{/*          </div>*/}}
-{{/*        </div>*/}}
-{{/**/}}
-{{/*        <div class="preview-item grid-4-3 from-left" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>*/}}
-{{/*          <div class= "preview-img-container">*/}}
-{{/*            <img {{ if .Site.Params.lazyLoading }}data-src="/images/hero-image-original.jpg" class="lazyload" lazyload="on"{{ else }}src="/images/hero-image-original.jpg"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>*/}}
-{{/*          </div>*/}}
-{{/*          <div class="row middle-xs center-xs preview-overlay">*/}}
-{{/*            <a href="{{ .Permalink }}" class="open-preview-page"></a>*/}}
-{{/*            <h2>666</h2>*/}}
-{{/*          </div>*/}}
-{{/*        </div>*/}}
-      </div>
-      <div class="preview-grid-row preview-row-odd preview-row-3"></div>
+        {{/* 构建组合的数组，每项包含 image, text, 和 aspect_ratio */}}
+        {{ range $j, $image := $page.Params.preview_images }}
+          {{ $text := index $page.Params.preview_text $j }}
+          {{ $aspect_ratio := index $page.Params.preview_aspect_ratios $j }}
+          {{ $combined = $combined | append (dict "image" $image "text" $text "aspect_ratio" $aspect_ratio) }}
+        {{ end }}
+
+        {{ $shuffled := first $maxPageImages (shuffle $combined) }}
+
+        {{range $item := $shuffled }}
+          {{ $image := $item.image }}
+          {{ $text := $item.text }}
+          {{ $aspect_ratio := $item.aspect_ratio }}
+
+          <div class="preview-item cg-related" onclick {{ if $page.Params.color }}style="background-color:{{ $page.Params.color }}; aspect-ratio: {{$aspect_ratio}}"{{ end }}>
+            <div class= "preview-img-container">
+              <img {{ if $page.Site.Params.lazyLoading }}data-src="/images/{{$image}}" class="lazyload" lazyload="on" {{ else }}src="/images/{{$image}}"{{ end }} {{ if $page.Params.alt }}alt="{{ $page.Params.alt }}"{{ end }}>
+            </div>
+            <div class="row middle-xs center-xs preview-overlay" style="flex-direction: column;">
+              <a href="{{ $page.Permalink }}" class="open-preview-page"></a>
+              <h3>{{ $page.Params.title }}</h3>
+              <h5>{{ $text }}</h5>
+            </div>
+          </div>
+        {{ end }}
+      {{ end }}
+    {{/*   First line   */}}
+      <div class="preview-grid-row preview-row-odd preview-row-1"></div>
+      {{/*   Second line, Empty for now   */}}
+      <div class="preview-grid-row preview-row-even preview-row-2"></div>
+      <div class="preview-grid-row preview-row-even preview-row-3"></div>
     </div>
     <div class="col-xs-12 preview-main" style="background-color: rgba(0, 0, 0, 0.8);">
 {{/*      <div class="row middle-xs center-xs preview-name" style="padding-top: 30px;">*/}}
