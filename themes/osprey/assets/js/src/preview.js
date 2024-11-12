@@ -128,71 +128,78 @@
     }
 
 
-    function animate() {
-        // console.log('animate')
-        if (currentItemIndex >= real_preview_items.length) return;
-        let item = real_preview_items[currentItemIndex];
-        let animIndex = currentItemIndex;
-        let offsetX;
-        if (item.classList.contains('from-right')) {
-            offsetX = offsetXRight;
-        }
-        else if (item.classList.contains('from-left')) {
-            offsetX = offsetXLeft;
-        }
-        else {
-            offsetX = 0;
-        }
-        let startX = offsetX; // 使用 offsetX 作为起始位置
-        let currentX = startX;
+    // 添加延迟参数（单位：毫秒）
+    const preview_row_1_delay = 0;      // 第一行延迟
+    const preview_row_3_delay = 1500;   // 第三行延迟
+    const preview_main_delay = 3000;    // preview_main 延迟
 
-        // 使用 requestAnimationFrame 实现动画逐渐变慢
+    // 分离动画函数
+    function animateRow(items) {
+        let currentIndex = 0;
+        const itemDelay = 0; // 每个item之间的延迟时间（毫秒）
+        
+        function animateItem() {
+            if (currentIndex >= items.length) return;
+            
+            let item = items[currentIndex];
+            startAnimation(item, () => {
+                currentIndex++;
+                // 延迟一段时间后开始下一个item的动画
+                setTimeout(animateItem, itemDelay);
+            });
+        }
+        
+        animateItem();
+    }
+
+    function startAnimation(item, onComplete) {
+        let offsetX = item.classList.contains('from-right') ? offsetXRight : offsetXLeft;
+        let startX = offsetX;
+        let currentX = startX;
+        let hasTriggeredNext = false;  // 标记是否已触发下一个动画
+
         function move() {
             currentX = lerp(currentX, targetX, speed);
             item.style.transform = `translateX(${currentX}px)`;
 
-            // 计算透明度，根据 currentX 的位置进行变化
-            const progress = (currentX - startX) / (targetX - startX); // 从 0 到 1
-            item.style.opacity = progress; // 透明度逐渐从 0 增加到 1
+            const progress = (currentX - startX) / (targetX - startX);
+            item.style.opacity = progress;
 
-            let overHalf = false;
-            if (startX > targetX) {
-                overHalf = currentX < (startX + targetX) / 2;
-            }
-            else {
-                overHalf = currentX > (startX + targetX) / 2;
-            }
+            // 检查是否过半
+            let overHalf = startX > targetX ? 
+                currentX < (startX + targetX) / 2 : 
+                currentX > (startX + targetX) / 2;
 
-            // console.log(overHalf)
-
-            // 当当前位置达到一半时，启动下一个item的动画
-            if (overHalf) {
-                if (currentItemIndex === animIndex) {
-                    currentItemIndex++;
-                    // console.log("start next animate")
-                    animate(); // 启动下一个item的动画
-                }
+            // 过半且还没触发过下一个动画
+            if (overHalf && !hasTriggeredNext) {
+                hasTriggeredNext = true;
+                if (onComplete) onComplete();
             }
 
-            // 检查是否接近目标位置，避免无限接近
             if (Math.abs(currentX - targetX) > 0.1) {
                 requestAnimationFrame(move);
-            }
-            else {
-                // The last item finished animation
-                // Start the main animation
-                if (animIndex === real_preview_items.length - 1) {
-                    animate_main();
-                }
-
+            } else {
+                item.style.transform = `translateX(${targetX}px)`;
+                item.style.opacity = 1;
             }
         }
 
         move();
     }
 
-// 启动第一个元素的动画
-    animate();
+    // 启动所有动画
+    setTimeout(() => {
+        const row1Items = Array.from(preview_row_1.querySelectorAll('.preview-item:not(.placeholder)'));
+        animateRow(row1Items);
+    }, preview_row_1_delay);
 
+    setTimeout(() => {
+        const row3Items = Array.from(preview_row_3.querySelectorAll('.preview-item:not(.placeholder)'));
+        animateRow(row3Items);
+    }, preview_row_3_delay);
+
+    setTimeout(() => {
+        animate_main();
+    }, preview_main_delay);
 
 })()
