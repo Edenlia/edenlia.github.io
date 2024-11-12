@@ -5,9 +5,9 @@ image = "YuanMengStar.png"
 alt = ""
 color = "#E0E1DD"
 description = ""
-preview_images = ["YuanMeng/YMS_main.jpg"]
-preview_text = ["Game Developer"]
-preview_aspect_ratios = [1.6]
+preview_images = []
+preview_text = []
+preview_aspect_ratios = []
 
 +++
 
