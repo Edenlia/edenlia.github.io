@@ -129,8 +129,8 @@
     {{ end }}
   <div class="col-xs-6 col-sm-1 nav-toggle">
       <a href="" class="nav-icon" onclick="return false">
-        <img {{ if .Site.Params.lazyLoading }}data-src="/images/icon-menu-white.png" class="lazyload" lazyload="on"{{ else }}src="/images/icon-menu-white.png"{{ end }} alt="Open Menu">
-        <img {{ if .Site.Params.lazyLoading }}data-src="/images/icon-x-white.png" class="lazyload" lazyload="on"{{ else }}src="/images/icon-x-white.png"{{ end }} alt="Close Menu" style="display: none;">
+        <img {{ if .Site.Params.lazyLoading }}data-src="/images/icon-menu-white.png" class="lazyload" lazyload="on" {{ else }}src="/images/icon-menu-white.png"{{ end }}alt="Open Menu">
+        <img {{ if .Site.Params.lazyLoading }}data-src="/images/icon-x-white.png" class="lazyload" lazyload="on" {{ else }}src="/images/icon-x-white.png"{{ end }}alt="Close Menu" style="display: none;">
       </a>
   </div>
 </nav>

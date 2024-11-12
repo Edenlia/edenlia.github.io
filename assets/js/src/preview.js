@@ -130,7 +130,7 @@
 
     // 添加延迟参数（单位：毫秒）
     const preview_row_1_delay = 0;      // 第一行延迟
-    const preview_row_3_delay = 1500;   // 第三行延迟
+    const preview_row_3_delay = 1200;   // 第三行延迟
     const preview_main_delay = 3000;    // preview_main 延迟
 
     // 分离动画函数

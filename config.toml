@@ -3,7 +3,7 @@ baseURL = "https://edenlia.github.io"
 tags = ["portfolio", "web design", "blog"]
 languageCode = "en-US"
 config = "config.toml"
-theme = "osprey"
+#theme = "osprey"
 canonifyURLS = true
 staticDir = "static"
 googleAnalytics = ""
@@ -19,6 +19,8 @@ disableKinds = ["taxonomy", "taxonomyTerm"] # This theme does not currently use 
   favicon = "favicon.ico"
   opengraphImage = "/images/hero-image.jpg"
   email = "zsy010906@gmail.com"
+  personalEmail = "zsy010906@gmail.com"
+  workEmail = "szhang87@usc.edu"
   googleTagManger = ""
   customCSS = false
 

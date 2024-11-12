@@ -5,9 +5,9 @@ image = "Volcan/SSR.png"
 alt = ""
 color = "#060D14"
 description = "Minecraft shader based on Optifine"
-preview_images = ["Volcan/pcss.png", "Volcan/blooming.png", "Volcan/SSR.png"]
-preview_text = ["PCSS shadows", "Blooming", "Screen Space Reflection"]
-preview_aspect_ratios = [1.777, 1.777, 1.777]
+preview_images = ["Volcan/pcss.png", "Volcan/SSR.png"]
+preview_text = ["PCSS shadows", "Screen Space Reflection"]
+preview_aspect_ratios = [1.777, 1.777]
 +++
 
 **Volcan** is a Minecraft shader based on [Optifine](https://github.com/sp614x/optifine).
