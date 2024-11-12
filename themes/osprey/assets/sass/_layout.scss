@@ -59,7 +59,17 @@ header {
   // But we need it be 50% of the screen height minus the nav height
   // Also keep the preview height (depend on children)
   .preview-main {
+    height: calc((100% - #{$vertical-rhythm * 4}) / 3);
+    width: 100%;
+    position: absolute;
     margin-bottom: $vertical-rhythm * 2;
+    display: flex;
+    align-items: center;  // 垂直居中
+    justify-content: center;  // 水平居中
+  }
+
+  .preview-name {
+    width: 100%;  // 确保宽度占满
   }
 
   .preview-background {
