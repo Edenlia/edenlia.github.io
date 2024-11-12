@@ -197,6 +197,15 @@ header {
       //margin: $vertical-rhythm;
       color: $white;
     }
+
+    h3 {
+      font-size: clamp(1rem, 1.5vw, 1.5rem);  // 最小1rem，最大1.5rem
+      margin-bottom: 0.5rem;
+    }
+
+    h5 {
+      font-size: clamp(0.8rem, 1vw, 1.2rem);  // 最小0.8rem，最大1.2rem
+    }
   }
 
 
