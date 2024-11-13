@@ -1,10 +1,16 @@
----
-date: 2024-01-12T10:58:08-04:00
-description: "Advanced web facial renderer"
-featured_image: "/images/WebVHuman/WebVHuman1.png"
-tags: [""]
-title: "WebVHuman"
----
++++
+date = "2023-10-20T00:00:00-00:00"
+title = "WebVHuman"
+image = "Volcan/SSR.png"
+alt = ""
+color = "#060D14"
+description = "Advanced web facial renderer"
+cover_image = "WebVHuman/WebVHuman1.png"
+preview_images = []
+preview_text = []
+preview_aspect_ratios = []
++++
+
 
 WebVHuman is an advanced facial renderer crafted using the latest cross-platform API, WebGPU. This project is designed to render human face on the website with high performance.
 
