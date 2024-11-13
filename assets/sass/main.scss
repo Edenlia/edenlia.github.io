@@ -8,6 +8,7 @@
 @import "modal";
 @import "about";
 @import "gallery";
+@import "list";
 
 @media (max-width: 47.99em) {
   body .container {
@@ -145,10 +146,6 @@ h3 {
   margin-bottom: $vertical-rhythm;
 }
 
-.posts-list {
-  margin: 0 0 $vertical-rhythm;
-}
-
 .sub-header,
 time {
   @include size(p);
@@ -202,47 +199,6 @@ time {
   height: 100vh;
 }
 
-.blog {
-  display: flex;
-  min-height: 100vh;
-
-  h2 {
-    margin-bottom: 0;
-  }
-
-  h3 {
-    margin: 0 0 $vertical-rhythm * 2;
-    font-family: $font-body;
-  }
-}
-
-.contact {
-  width: 100%;
-  padding-bottom: $vertical-rhythm * 2;
-  background-color: $smoke;
-
-  form {
-    margin-top: $vertical-rhythm;
-  }
-
-  .contact-submit {
-    position: relative;
-  }
-
-  #form-submit {
-    display: block;
-    width: 50%;
-    margin: 0 auto;
-  }
-
-  #form-thankyou {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-}
-
 input {
   width: 100%;
   margin: 8px 0;
@@ -271,4 +227,11 @@ textarea {
   @extend input;
   min-height: $vertical-rhythm * 4;
   overflow: auto;
+}
+
+#player-wrapper {
+  width: 100%;
+  aspect-ratio: 16/9;  // 保持 16:9 的宽高比
+  margin: 0 auto;      // 水平居中
+
 }

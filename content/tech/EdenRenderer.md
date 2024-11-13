@@ -5,6 +5,7 @@ image = "EdenRenderer/Dragon.png"
 alt = ""
 color = "#060D14"
 description = "Software renderer"
+cover_image = "EdenRenderer/Dragon.png"
 preview_images = ["EdenRenderer/Dragon.png"]
 preview_text = ["Rasterization"]
 preview_aspect_ratios = [1.7777]

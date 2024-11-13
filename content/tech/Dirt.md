@@ -5,6 +5,7 @@ image = "Dirt/veach_mis.png"
 alt = ""
 color = "#060D14"
 description = ""
+cover_image = "Dirt/veach_mis.png"
 preview_images = ["Dirt/veach_mis.png", "Dirt/perlin_noise.png", "Dirt/env_map_high.png", "Dirt/volume_rendering.png"]
 preview_text = ["Multiple Importance Sampling", "Procedural Texture", "Environment Map", "Volume Rendering"]
 preview_aspect_ratios = [1.5, 1, 1, 1]

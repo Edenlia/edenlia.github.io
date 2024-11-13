@@ -5,6 +5,7 @@ image = "GaussianSplattingStudio/teaser.png"
 alt = ""
 color = "#060D14"
 description = ""
+cover_image = "GaussianSplattingStudio/teaser.png"
 preview_images = ["GaussianSplattingStudio/teaser.png"]
 preview_text = ["Multi-Differentiable GS Output"]
 preview_aspect_ratios = [1.777]

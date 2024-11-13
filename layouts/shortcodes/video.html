@@ -17,8 +17,8 @@
     source: {{ .Get 0 }},   // 替换为 YouTube 视频的 URL
     plugins: [Clappr.YoutubePlugin, Clappr.VimeoPlugin],  // 启用 YouTube 插件
     mute: true,
-    height: 360,
-    width: 640,
+    width: "100%",
+    height: "100%",
     youtubePlugin: { // YouTube 插件配置
       controls: true,    // 显示控制条
       autoplay: true,    // 自动播放

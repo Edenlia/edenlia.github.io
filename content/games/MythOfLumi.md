@@ -5,6 +5,7 @@ image = "MythOfLumi/Myth Of Lumi.png"
 alt = ""
 color = "#060D14"
 description = "Turf Wars with Cards"
+cover_image = "MythOfLumi/Myth Of Lumi.png"
 preview_images = ["MythOfLumi/Myth Of Lumi.png"]
 preview_text = [""]
 preview_aspect_ratios = [1.777]

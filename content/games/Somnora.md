@@ -5,6 +5,7 @@ image = "GazedHouse/gazedHouse.jpg"
 alt = ""
 color = "#060D14"
 description = "Poolcore puzzle game"
+cover_image = "Somnora/Somnora.png"
 preview_images = ["Somnora/Somnora.png"]
 preview_text = [""]
 preview_aspect_ratios = [1.777]

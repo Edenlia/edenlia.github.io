@@ -5,6 +5,7 @@ image = "GazedHouse/gazedHouse.jpg"
 alt = ""
 color = "#060D14"
 description = "Eye-controlled Horror Game"
+cover_image = "GazedHouse/gazedHouse.jpg"
 preview_images = ["GazedHouse/gazedHouse.jpg"]
 preview_text = [""]
 preview_aspect_ratios = [1.777]

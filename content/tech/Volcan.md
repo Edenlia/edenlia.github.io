@@ -5,6 +5,7 @@ image = "Volcan/SSR.png"
 alt = ""
 color = "#060D14"
 description = "Minecraft shader based on Optifine"
+cover_image = "Volcan/pcss.png"
 preview_images = ["Volcan/pcss.png", "Volcan/SSR.png"]
 preview_text = ["PCSS shadows", "Screen Space Reflection"]
 preview_aspect_ratios = [1.777, 1.777]

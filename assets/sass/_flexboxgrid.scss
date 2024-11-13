@@ -16,6 +16,11 @@
   margin-right: auto;
   margin-left: auto;
 }
+.list-container {
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .row {
   box-sizing: border-box;
   display: flex;
@@ -182,6 +187,10 @@
   .container {
     width: 49rem;
   }
+  .list-container {
+    width: 49rem;
+  }
+
   .col-sm {
     box-sizing: border-box;
     flex: 0 0 auto;
@@ -415,6 +424,10 @@
   .container {
     width: 65rem;
   }
+  .list-container {
+    width: 65rem;
+  }
+
   .col-md {
     box-sizing: border-box;
     flex: 0 0 auto;
@@ -648,6 +661,11 @@
   .container {
     width: 76rem;
   }
+
+  .list-container {
+    width: 76rem;
+  }
+
   .col-lg {
     box-sizing: border-box;
     flex: 0 0 auto;
