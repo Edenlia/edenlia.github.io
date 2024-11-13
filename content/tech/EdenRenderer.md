@@ -14,7 +14,14 @@ preview_aspect_ratios = [1.7777]
 
 EdenRenderer is a software renderer that written with C++, using GLUT for display.
 
-This project implemented rasterization pipeline including space transformation, depth testing, frustum culling, barycentric interpolation. Also support model and texture loading using assimp, stb lib. Shading uses Blinn-Phong lighting model, and using normal map to improve quality.
+This project implemented rasterization pipeline including
+- Space transformation, 
+- Depth testing, 
+- Frustum culling, 
+- Barycentric interpolation. 
+- Support model loading using assimp.
+- Support uv albedo texture mapping, normal mapping.
+- Blinn-Phong lighting model shading.
 
 {{< video "/images/EdenRenderer/Display.mp4" >}}
 

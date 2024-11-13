@@ -5,7 +5,7 @@ image = ""
 alt = ""
 color = "#060D14"
 description = ""
-preview_images = ["GKART/GKART_leisure.png"]
+preview_images = ["GKART/merged_GKART.png"]
 preview_text = ["Game Developer (Intern)"]
 preview_aspect_ratios = [1.6]
 
