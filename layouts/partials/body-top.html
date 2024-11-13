@@ -1,3 +1,8 @@
+<div class="page-transition-overlay"></div>
+
+<script src="{{ (resources.Get "js/src/switch.js" | minify | fingerprint).Permalink }}" type="text/javascript"></script>
+
+
 {{ if .Site.Params.googleTagManager }}
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ .Site.Params.googleTagManager }}"
