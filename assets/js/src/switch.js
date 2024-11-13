@@ -1,41 +1,43 @@
 function initPageTransitions() {
     const overlay = document.querySelector('.page-transition-overlay');
 
-    // 页面加载后淡出
-    requestAnimationFrame(() => {
+    // 初始页面加载时隐藏遮罩
+    function hideOverlay() {
         setTimeout(() => {
             overlay.classList.add('hidden');
         }, 50);
+    }
+
+
+    // 处理所有导航事件（包括后退/前进）
+    function handleNavigation(targetUrl) {
+        overlay.classList.remove('hidden');
+
+        setTimeout(function() {
+            window.location = targetUrl;
+        }, 300);
+    }
+
+    // 监听浏览器后退/前进
+    window.addEventListener('popstate', function(event) {
+        handleNavigation(event.state.url);
     });
 
-    // 只处理导航链接的点击
+    // 处理点击链接导航
     document.addEventListener('click', function(e) {
         const link = e.target.closest('a');
-
-        // 检查是否是导航链接（通过比较当前路径和目标路径）
+        
         if (link && !link.classList.contains('nav-icon') && !link.target && link.href.startsWith(window.location.origin)) {
             const currentPath = window.location.pathname;
             const targetPath = new URL(link.href).pathname;
-
-            // 只有当目标路径与当前路径不同时才触发过渡
+            
             if (currentPath !== targetPath) {
                 e.preventDefault();
-                isCurrentPage = false;
-
-                // 显示过渡遮罩
-                overlay.classList.remove('hidden');
-
-                setTimeout(function() {
-                    window.location = link.href;
-                }, 300);
+                handleNavigation(link.href);
             }
         }
     });
+    window.addEventListener('DOMContentLoaded', hideOverlay);
 }
 
-// 确保尽早初始化
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initPageTransitions);
-} else {
-    initPageTransitions();
-}
+document.addEventListener('DOMContentLoaded', initPageTransitions);
