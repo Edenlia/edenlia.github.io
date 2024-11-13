@@ -24,10 +24,12 @@
                         <div class="default-cover"></div>
                       {{ end }}
                     </div>
+                    <div class="list-text-container">
+                        <h3>{{ .Title }}</h3>
+                        <p>{{ .Date.Format (.Site.Params.dateform | default "January 2, 2006") }}</p>
+                    </div>
                     <div class="row middle-xs center-xs list-overlay" style="flex-direction: column;">
                       <a href="{{ .Permalink }}" class="open-preview-page"></a>
-                      <h3>{{ .Title }}</h3>
-                      <h5>{{ .Date.Format (.Site.Params.dateform | default "January 2, 2006") }}</h5>
                     </div>
                   </div>
                 </div>
