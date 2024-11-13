@@ -2,20 +2,28 @@
   <div id="player-wrapper" class="{{ .Get 1 }}"></div>
 </div>
 
-<script 
-  type="text/javascript" 
-  src="https://cdn.jsdelivr.net/npm/@clappr/player@latest/dist/clappr.min.js"
->
-</script>
+<!-- Clappr 主播放器库 -->
+<script src="https://cdn.jsdelivr.net/npm/@clappr/player@latest/dist/clappr.min.js"></script>
+<!-- Clappr 的 YouTube 插件 -->
+<script src="https://cdn.jsdelivr.net/npm/clappr-youtube-plugin@latest/dist/clappr-youtube-plugin.min.js"></script>
+<!-- Clappr 的 Vimeo 插件 -->
+<script src="https://cdn.jsdelivr.net/npm/@clappr-vimeo-plugin@latest/dist/clappr-vimeo-plugin.min.js"></script>
+
 
 <script>
   var playerElement = document.getElementById("player-wrapper");
 
   var player = new Clappr.Player({
-    source: {{ .Get 0 }},
+    source: {{ .Get 0 }},   // 替换为 YouTube 视频的 URL
+    plugins: [Clappr.YoutubePlugin, Clappr.VimeoPlugin],  // 启用 YouTube 插件
     mute: true,
     height: 360,
-    width: 640
+    width: 640,
+    youtubePlugin: { // YouTube 插件配置
+      controls: true,    // 显示控制条
+      autoplay: true,    // 自动播放
+      modestbranding: true // 去除 YouTube Logo
+    }
   });
 
   player.attachTo(playerElement);  

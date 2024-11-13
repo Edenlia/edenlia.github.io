@@ -1,5 +1,5 @@
 +++
-date = "2017-05-15T21:52:57-07:00"
+date = "2024-10-06T00:00:00-00:00"
 title = "Gazed House: Horror Game"
 image = "GazedHouse/gazedHouse.jpg"
 alt = ""
@@ -9,3 +9,5 @@ preview_images = ["GazedHouse/gazedHouse.jpg"]
 preview_text = [""]
 preview_aspect_ratios = [1.777]
 +++
+
+{{< video "https://www.youtube.com/watch?v=rm7boWaAtAA" >}}

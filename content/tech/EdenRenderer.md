@@ -1,5 +1,5 @@
 +++
-date = "2017-05-15T21:52:57-07:00"
+date = "2023-09-10T00:00:00-00:00"
 title = "EdenRenderer: Software Rasterizer"
 image = "EdenRenderer/Dragon.png"
 alt = ""
