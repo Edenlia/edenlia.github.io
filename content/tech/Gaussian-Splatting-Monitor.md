@@ -12,7 +12,7 @@ preview_aspect_ratios = [1.777]
 
 +++
 
-{{< video "/images/GaussianSplattingStudio/teaser.mp4" >}}
+{{< video type="local" src="/images/GaussianSplattingStudio/teaser.mp4" >}}
 
 
 
