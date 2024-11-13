@@ -8,18 +8,27 @@ function initPageTransitions() {
         }, 50);
     });
 
-    // 处理所有内部链接点击
+    // 只处理导航链接的点击
     document.addEventListener('click', function(e) {
         const link = e.target.closest('a');
-        if (link && !link.target && link.href.startsWith(window.location.origin)) {
-            e.preventDefault();
 
-            // 移除 hidden 类来显示遮罩
-            overlay.classList.remove('hidden');
+        // 检查是否是导航链接（通过比较当前路径和目标路径）
+        if (link && !link.classList.contains('nav-icon') && !link.target && link.href.startsWith(window.location.origin)) {
+            const currentPath = window.location.pathname;
+            const targetPath = new URL(link.href).pathname;
 
-            setTimeout(function() {
-                window.location = link.href;
-            }, 300);
+            // 只有当目标路径与当前路径不同时才触发过渡
+            if (currentPath !== targetPath) {
+                e.preventDefault();
+                isCurrentPage = false;
+
+                // 显示过渡遮罩
+                overlay.classList.remove('hidden');
+
+                setTimeout(function() {
+                    window.location = link.href;
+                }, 300);
+            }
         }
     });
 }

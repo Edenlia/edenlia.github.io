@@ -223,10 +223,10 @@ footer {
 
 .page-transition-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: -50vh; // 向上额外延伸
+  left: -50vw; // 向左额外延伸
+  width: 200vw; // 加倍宽度以确保覆盖
+  height: 200vh; // 加倍高度以确保覆盖
   background-color: #000;
   opacity: 1;
   pointer-events: none;
