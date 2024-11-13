@@ -11,4 +11,4 @@ preview_text = [""]
 preview_aspect_ratios = [1.777]
 +++
 
-{{< video "https://vimeo.com/932808293" >}}
+{{< video type="vimeo" src="https://vimeo.com/932808293" >}}

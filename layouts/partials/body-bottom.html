@@ -1,8 +1,3 @@
-{{ if not (eq (len (where .Site.RegularPages "Section" "gallery")) 0) }}
-  {{ partial "modals.html" . }}
-  <script src="{{ (resources.Get "js/src/modal.js" | minify | fingerprint).Permalink }}" type="text/javascript"></script>
-{{ end }}
-
 {{ if .Site.Params.highlightJS }}
   {{ if .Site.Params.highlightJSScript }}
     <script src="{{ .Site.Params.highlightJSScript }}"></script>

@@ -24,7 +24,7 @@ This project implemented rasterization pipeline including
 - Support uv albedo texture mapping, normal mapping.
 - Blinn-Phong lighting model shading.
 
-{{< video "/images/EdenRenderer/Display.mp4" >}}
+{{< video type="local" src="/images/EdenRenderer/Display.mp4" >}}
 
 
 

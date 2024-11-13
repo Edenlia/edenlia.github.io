@@ -1,30 +1,69 @@
+{{ $type := .Get "type" }}
+{{ $src := .Get "src" }}
+
 <div class="container">
-  <div id="player-wrapper" class="{{ .Get 1 }}"></div>
+    <div id="player-wrapper">
+        {{/*   Youtube and Vimeo use video-js, local use clapper     */}}
+        {{ if $type }}
+            {{ if eq $type "local" }}
+                {{/*   Will attach in script code   */}}
+            {{ else }}
+                <video-js id="my-video" class="video-js vjs-default-skin"></video-js>
+            {{ end }}
+        {{ end }}
+
+
+    </div>
 </div>
-
-<!-- Clappr 主播放器库 -->
-<script src="https://cdn.jsdelivr.net/npm/@clappr/player@latest/dist/clappr.min.js"></script>
-<!-- Clappr 的 YouTube 插件 -->
-<script src="https://cdn.jsdelivr.net/npm/clappr-youtube-plugin@latest/dist/clappr-youtube-plugin.min.js"></script>
-<!-- Clappr 的 Vimeo 插件 -->
-<script src="https://cdn.jsdelivr.net/npm/@clappr-vimeo-plugin@latest/dist/clappr-vimeo-plugin.min.js"></script>
-
+{{ if $type }}
+    {{ if eq $type "local" }}
+        <script src="https://cdn.jsdelivr.net/npm/@clappr/player@latest/dist/clappr.min.js"></script>
+    {{ else }}
+        <!-- Video.js 核心库 -->
+        <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+        <script src="{{ (resources.Get "js/vendor/videojs/video.min.js" | minify | fingerprint).Permalink }}" type="text/javascript"></script>
+        <!-- Video.js 的 YouTube 插件 -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-youtube/3.0.1/Youtube.min.js"></script>
+        <!-- Video.js 的 Vimeo 插件 -->
+        <script src="{{ (resources.Get "js/vendor/videojs/videojs-vimeo.min.js" | minify | fingerprint).Permalink }}" type="text/javascript"></script>
+    {{ end }}
+{{ end }}
 
 <script>
-  var playerElement = document.getElementById("player-wrapper");
+    {{ $type := .Get "type" }};
 
-  var player = new Clappr.Player({
-    source: {{ .Get 0 }},   // 替换为 YouTube 视频的 URL
-    plugins: [Clappr.YoutubePlugin, Clappr.VimeoPlugin],  // 启用 YouTube 插件
-    mute: true,
-    width: "100%",
-    height: "100%",
-    youtubePlugin: { // YouTube 插件配置
-      controls: true,    // 显示控制条
-      autoplay: true,    // 自动播放
-      modestbranding: true // 去除 YouTube Logo
-    }
-  });
+    {{ if $type }}
+        {{ if eq $type "local" }}
+            var playerElement = document.getElementById("player-wrapper");
+            var player = new Clappr.Player({
+                source: {{ $src }},
+                mute: true,
+                width: "100%",
+                height: "100%",
+            });
 
-  player.attachTo(playerElement);  
+            player.attachTo(playerElement);
+        {{ else }}
+            var videoType;
+            {{ if $type }}
+                {{ if eq $type "youtube" }}
+                    videoType = 'video/youtube';
+                {{ else if eq $type "vimeo" }}
+                    videoType = 'video/vimeo';
+                {{ else }}
+                {{ end }}
+            {{ end }}
+            var player = videojs('my-video', {
+                techOrder: ['youtube', 'vimeo'],
+                autoplay: false,
+                muted: false,
+                controls: true,
+                fluid: true,
+                sources: [{
+                    src: {{ $src }},
+                    type: videoType // 或 'video/vimeo',根据视频源自动判断
+                }]
+            });
+        {{ end }}
+    {{ end }}
 </script>
