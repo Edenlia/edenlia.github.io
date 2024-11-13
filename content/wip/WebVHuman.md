@@ -10,7 +10,7 @@ WebVHuman is an advanced facial renderer crafted using the latest cross-platform
 
 The  project implemented physical based rendering technics includes microfacet BRDF, shadow map (PCF), and real-time subsurface scattering. 
 
-{{< video "/images/WebVHuman/LightRotation.mp4" >}}
+{{< video type="local" src="/images/WebVHuman/LightRotation.mp4" >}}
 
 ## Microfacet BRDF
 
