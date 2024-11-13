@@ -3,19 +3,24 @@
 <footer class="row middle-xs center-xs">
     {{ if .Site.Params.facebook }}
     <div class="col-xs-3 col-md-2"><a target="_blank" rel="noopener" href="https://facebook.com/{{ .Site.Params.facebook }}">{{ i18n "facebook" }}</a></div>
-  {{ end }}
+    {{ end }}
 
-  {{ if .Site.Params.github }}
+    {{ if .Site.Params.github }}
     <div class="col-xs-3 col-md-2"><a target="_blank" rel="noopener" href="https://github.com/{{ .Site.Params.github }}">{{ i18n "github" }}</a></div>
-  {{ end }}
+    {{ end }}
 
-  {{ if .Site.Params.linkedin }}
+    {{ if .Site.Params.linkedin }}
     <div class="col-xs-3 col-md-2"><a target="_blank" rel="noopener" href="https://linkedin.com/in/{{ .Site.Params.linkedin }}">{{ i18n "linkedin" }}</a></div>
-  {{ end }}
+    {{ end }}
 
-  {{ if .Site.Params.twitter }}
+    {{ if .Site.Params.twitter }}
     <div class="col-xs-3 col-md-2"><a target="_blank" rel="noopener" href="https://twitter.com/{{ .Site.Params.twitter }}">{{ i18n "twitter" }}</a></div>
-  {{ end }}
+    {{ end }}
+
+    {{ if .Site.Params.steam }}
+        <div class="col-xs-3 col-md-2"><a target="_blank" rel="noopener" href="https://steamcommunity.com/profiles/{{ .Site.Params.steam }}">{{ i18n "steam" }}</a></div>
+    {{ end }}
+
 
     <div class="col-xs-12" style="margin-top: 1em; margin-bottom: 1em;">
         <div class="row center-xs">

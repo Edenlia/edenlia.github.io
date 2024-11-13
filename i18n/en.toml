@@ -39,3 +39,5 @@ other = "GitHub"
 other = "LinkedIn"
 [twitter]
 other = "Twitter"
+[steam]
+other = "Steam"
