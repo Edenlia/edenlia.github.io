@@ -20,10 +20,11 @@ function initPageTransitions() {
 
     // 监听浏览器后退/前进
     window.addEventListener('popstate', function(event) {
-        handleNavigation(event.state.url);
+        const targetUrl = event.state?.url || window.location.href;
+        handleNavigation(targetUrl);
     });
 
-    // 处理点击链接导航
+    // 处理点击链接导航时保存状态
     document.addEventListener('click', function(e) {
         const link = e.target.closest('a');
         
@@ -33,6 +34,7 @@ function initPageTransitions() {
             
             if (currentPath !== targetPath) {
                 e.preventDefault();
+                history.pushState({ url: link.href }, '', link.href);
                 handleNavigation(link.href);
             }
         }
