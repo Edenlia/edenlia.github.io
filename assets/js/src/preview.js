@@ -55,19 +55,19 @@
     // Reassign real_preview_items, make sure the sort is correct
     real_preview_items = $$('.preview-item')
 
-    // After shuffling all real preview items, add preview placeholder items
-    // Each row has 5 placeholders to make sure the real preview items are correct
-    for (let i = 0; i < 5; i++) {
-        let placeholder = document.createElement('div')
-        placeholder.classList.add('preview-item', 'grid-16-9', 'from-right', 'placeholder')
-        preview_row_1.appendChild(placeholder)
-    }
+    // // After shuffling all real preview items, add preview placeholder items
+    // // Each row has 5 placeholders to make sure the real preview items are correct
+    // for (let i = 0; i < 5; i++) {
+    //     let placeholder = document.createElement('div')
+    //     placeholder.classList.add('preview-item', 'grid-16-9', 'from-right', 'placeholder')
+    //     preview_row_1.appendChild(placeholder)
+    // }
 
-    for (let i = 0; i < 5; i++) {
-        let placeholder = document.createElement('div')
-        placeholder.classList.add('preview-item', 'grid-16-9', 'from-left', 'placeholder')
-        preview_row_3.appendChild(placeholder)
-    }
+    // for (let i = 0; i < 5; i++) {
+    //     let placeholder = document.createElement('div')
+    //     placeholder.classList.add('preview-item', 'grid-16-9', 'from-left', 'placeholder')
+    //     preview_row_3.appendChild(placeholder)
+    // }
 
     const offsetXRight = 600; // 目标位置（可以根据需要调整）
     const offsetXLeft = -600;
@@ -201,5 +201,168 @@
     setTimeout(() => {
         animate_main();
     }, preview_main_delay);
+
+    // 添加拖动功能
+    function enableDragging(row) {
+        let isDragging = false;
+        let startX;
+        let startY;
+        let scrollLeft;
+        let clickStartTime;
+        let hasMoved = false;
+        
+        // 添加动量相关变量
+        let velocity = 0;
+        let lastX = 0;
+        let lastTime = 0;
+        let animationFrameId = null;
+
+        // 阻止所有链接的默认拖动行为
+        row.querySelectorAll('a').forEach(link => {
+            link.addEventListener('dragstart', (e) => e.preventDefault());
+        });
+
+        function updateVelocity(currentX) {
+            const now = Date.now();
+            const dt = Math.max(1, now - lastTime);
+            const dx = currentX - lastX;
+            velocity = dx / dt;
+            lastX = currentX;
+            lastTime = now;
+        }
+
+        function momentumScroll() {
+            if (Math.abs(velocity) < 0.01) {
+                cancelAnimationFrame(animationFrameId);
+                return;
+            }
+
+            // 应用摩擦力
+            velocity *= 0.95;
+
+            // 更新滚动位置
+            row.scrollLeft -= velocity * 16; // 16ms 是一帧的近似时间
+            animationFrameId = requestAnimationFrame(momentumScroll);
+        }
+
+        row.addEventListener('mousedown', (e) => {
+            // 停止任何正在进行的动量滚动
+            cancelAnimationFrame(animationFrameId);
+            
+            isDragging = true;
+            row.style.cursor = 'grabbing';
+            startX = e.pageX - row.offsetLeft;
+            startY = e.pageY;
+            scrollLeft = row.scrollLeft;
+            clickStartTime = new Date().getTime();
+            hasMoved = false;
+            
+            // 重置动量追踪
+            velocity = 0;
+            lastX = e.pageX;
+            lastTime = Date.now();
+        });
+
+        row.addEventListener('mouseleave', () => {
+            if (isDragging) {
+                isDragging = false;
+                row.style.cursor = 'grab';
+                // 开始动量滚动
+                momentumScroll();
+            }
+        });
+
+        row.addEventListener('mouseup', (e) => {
+            if (!isDragging) return;
+            
+            isDragging = false;
+            row.style.cursor = 'grab';
+
+            const clickEndTime = new Date().getTime();
+            const clickDuration = clickEndTime - clickStartTime;
+            
+            if (hasMoved || clickDuration > 200) {
+                e.preventDefault();
+                e.stopPropagation();
+                // 开始动量滚动
+                momentumScroll();
+            }
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+
+            const x = e.pageX - row.offsetLeft;
+            const y = e.pageY;
+            const moveX = Math.abs(x - startX);
+            const moveY = Math.abs(y - startY);
+
+            if (moveX > 5 || moveY > 5) {
+                hasMoved = true;
+                e.preventDefault();
+                const walk = (x - startX) * 2;
+                row.scrollLeft = scrollLeft - walk;
+                
+                // 更新速度
+                updateVelocity(e.pageX);
+            }
+        });
+
+        document.addEventListener('mouseup', () => {
+            if (isDragging) {
+                isDragging = false;
+                row.style.cursor = 'grab';
+                // 开始动量滚动
+                momentumScroll();
+            }
+        });
+
+        row.addEventListener('click', (e) => {
+            if (hasMoved) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+        }, true);
+
+        let wheelVelocity = 0;
+        let wheelAnimationFrameId = null;
+
+        function wheelMomentumScroll() {
+            if (Math.abs(wheelVelocity) < 0.01) {
+                cancelAnimationFrame(wheelAnimationFrameId);
+                return;
+            }
+
+            // 更温和的减速
+            wheelVelocity *= 0.92;
+
+            row.scrollLeft += wheelVelocity;
+            wheelAnimationFrameId = requestAnimationFrame(wheelMomentumScroll);
+        }
+
+        // 添加滚轮事件监听
+        row.addEventListener('wheel', (e) => {
+            e.preventDefault();
+
+            cancelAnimationFrame(wheelAnimationFrameId);
+
+            // 降低初始速度
+            const scrollSpeed = 1.5;
+            // 使用 Math.sign 来确保滚动更加平滑
+            wheelVelocity = Math.sign(e.deltaY) * Math.min(Math.abs(e.deltaY), 50) * scrollSpeed;
+
+            wheelMomentumScroll();
+        }, { passive: false });
+    }
+
+    // 在动画完成后启用拖动和滚轮功能
+    setTimeout(() => {
+        preview_row_1.style.cursor = 'grab';
+        preview_row_3.style.cursor = 'grab';
+        preview_row_1.style.overflowX = 'hidden';
+        preview_row_3.style.overflowX = 'hidden';
+        enableDragging(preview_row_1);
+        enableDragging(preview_row_3);
+    }, preview_row_3_delay + 2000);
 
 })()
