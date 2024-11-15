@@ -245,6 +245,59 @@
             animationFrameId = requestAnimationFrame(momentumScroll);
         }
 
+        // 触摸事件处理 (新增)
+        row.addEventListener('touchstart', (e) => {
+            cancelAnimationFrame(animationFrameId);
+            
+            isDragging = true;
+            const touch = e.touches[0];
+            startX = touch.pageX - row.offsetLeft;
+            startY = touch.pageY;
+            scrollLeft = row.scrollLeft;
+            clickStartTime = new Date().getTime();
+            hasMoved = false;
+            
+            // 重置动量追踪
+            velocity = 0;
+            lastX = touch.pageX;
+            lastTime = Date.now();
+        }, { passive: false });
+
+        row.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+
+            const touch = e.touches[0];
+            const x = touch.pageX - row.offsetLeft;
+            const y = touch.pageY;
+            const moveX = Math.abs(x - startX);
+            const moveY = Math.abs(y - startY);
+
+            if (moveX > 5 || moveY > 5) {
+                hasMoved = true;
+                const walk = (x - startX) * 2;
+                row.scrollLeft = scrollLeft - walk;
+                
+                // 更新速度
+                updateVelocity(touch.pageX);
+            }
+        }, { passive: false });
+
+        row.addEventListener('touchend', (e) => {
+            if (!isDragging) return;
+            
+            isDragging = false;
+            const clickEndTime = new Date().getTime();
+            const clickDuration = clickEndTime - clickStartTime;
+            
+            if (hasMoved || clickDuration > 200) {
+                e.preventDefault();
+                // 开始动量滚动
+                momentumScroll();
+            }
+        }, { passive: false });
+
+        // 保持所有现有的鼠标事件处理器不变
         row.addEventListener('mousedown', (e) => {
             // 停止任何正在进行的动量滚动
             cancelAnimationFrame(animationFrameId);
