@@ -1,7 +1,7 @@
 {{ $type := .Get "type" }}
 {{ $src := .Get "src" }}
 
-<div class="container">
+{{/*<div class="container">*/}}
     <div id="player-wrapper">
         {{/*   Youtube and Vimeo use video-js, local use clapper     */}}
         {{ if $type }}
@@ -14,7 +14,7 @@
 
 
     </div>
-</div>
+{{/*</div>*/}}
 {{ if $type }}
     {{ if eq $type "local" }}
         <script src="https://cdn.jsdelivr.net/npm/@clappr/player@latest/dist/clappr.min.js"></script>
