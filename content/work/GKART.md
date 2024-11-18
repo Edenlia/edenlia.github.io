@@ -14,4 +14,21 @@ preview_aspect_ratios = [1.6]
 
 
 
-asdklfjseoifjseioufjsodimfoiejfoisjefoijsdiofjeiojsiodjfie
+### Department
+
+Tencent Games - TIMI Studios
+
+### Role
+
+ Gameplay Engineer Intern
+
+### Contribution
+
+- ***Performance Optimization***:  Project Logging system optimize, reduce logging GC cost; xLua hotfix optimize, reduce game startup loading time.
+
+- ***Crash, Exception, Error reporting system modification***: Optimize game exception, error report info, reduce debugging time for developer; Researched the issue of missing Exception, Error stackTrace ; Built crash stack trace analysis tool pipeline. 
+
+- ***UI development***: Develop game's match opening show and player feedback UI, gaining development experience with Unity's UI system.
+
+- ***CDN package size optimization***: CDN image format modification, from JPG, PNG to ASTC.
+

@@ -11,12 +11,18 @@ preview_text = []
 preview_aspect_ratios = []
 +++
 
-_**Department:**_ Microsoft Azure Machine Learning
+### Department
 
-_**Role:**_ Backend Software Engineer Intern
+Microsoft Azure Machine Learning
 
+### Role
 
+ Backend Software Engineer Intern
+
+### Contribution
 
 - Optimize the Machine Learning container creation process by asynchronous check and increase the creation speed by 60%
+
 - Maintain Azure cloud platform backend by C\# and enhance scalability and reliability.
-- Migrate a backend microservice by Docker and Kubernetes, meet more production requirements.
+
+- Migrate a backend microservice by Docker and Kubernetes.
