@@ -11,4 +11,20 @@ preview_text = [""]
 preview_aspect_ratios = [1.777]
 +++
 
-WIP
+### Role
+
+Lead Engineer and Visual Designer
+
+### Game Description
+
+
+
+### Contribution
+
+- All Game Logic: Smooth Gravity adjustment, Realistic movement, Game Sound integration etc.
+
+- Visual and Scene Design: 
+
+### Showcase
+
+Here is some screenshot of Somnora:
