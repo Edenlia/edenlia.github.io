@@ -21,7 +21,7 @@ Microsoft Azure Machine Learning
 
 ### Contribution
 
-- Optimize the Machine Learning container creation process by asynchronous check and increase the creation speed by 60%
+- Optimize the Machine Learning container creation process by asynchronous check and increase the creation speed
 
 - Maintain Azure cloud platform backend by C\# and enhance scalability and reliability.
 

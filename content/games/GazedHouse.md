@@ -1,5 +1,5 @@
 +++
-date = "2024-10-06T00:00:00-00:00"
+date = "2024-02-06T00:00:00-00:00"
 title = "Gazed House: Horror Game"
 image = "GazedHouse/gazedHouse.jpg"
 alt = ""
@@ -26,6 +26,7 @@ In this sinister house filled with grotesque masks and horrors, you take on the 
 ### Contribution
 
 Engineered all game mechanics and systems, including:
+
 - integration with tobii eye-tracking
 - all camera behaviors
 - enemy logic
