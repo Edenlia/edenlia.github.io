@@ -21,9 +21,9 @@ Lead Engineer and Visual Designer
 
 ### Contribution
 
-- All Game Logic: Smooth Gravity adjustment, Realistic movement, Game Sound integration etc.
+- **All Game Logic**: Smooth Gravity adjustment, Realistic movement, Game Sound integration etc.
 
-- Visual and Scene Design: 
+- **Visual and Scene Design**: 
 
 ### Showcase
 

@@ -16,31 +16,25 @@ D3DRT is a physical based raytracing renderer based on DirectX 12 Raytracing. Th
 
 ## Features
 
-Implement rasteration and raytracing pipelines and can switch render mode in runtime.
+**Implement rasteration and raytracing pipelines and can switch render mode in runtime.**
 
 ![switch_mode](/images/D3DRT/switch_mode.gif)
 
-Implement multiple materials (Blinn-Phong and Disney Principled) in rasteration mode.
+**Implement multiple materials (Blinn-Phong and Disney Principled) in rasteration mode.**
 
 ![Rasteration](/images/D3DRT/Rasteration.png)
 
-
-
-imgui change material parameters in runtime
+**imgui change material parameters in runtime**
 
 ![imgui](/images/D3DRT/imgui.gif)
 
-
-
-Important sampling for Disney principled BRDF
+**Important sampling for Disney principled BRDF**
 
 Uniform sampling(left), Important sampling(right), using 500ssp: 
 
 ![Important sampling](/images/D3DRT/Important_sampling.png)
 
-
-
-Low Discrepancy Sequence for denoise
+**Low Discrepancy Sequence for denoise**
 
 Pseudorandom number(left), Halton sequence number(right), using 20ssp: 
 

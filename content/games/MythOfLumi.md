@@ -23,13 +23,13 @@ You play as a magician and compete against other magicians in **Magic Duels** wi
 
 ### Contribution
 
-- Game Framework: Zenject integration, Game State Machine, Game Event System, etc.
+- **Game Framework**: Zenject integration, Game State Machine, Game Event System, etc.
 
-- Turf War system: Turf War area generation, player movement in Turf War area.
+- **Turf War system**: Turf War area generation, player movement in Turf War area.
 
-- Enemy AI: Programmed AI behaviors for enemy by behavior tree, including pathfinding, decision making, skill usage, etc.
+- **Enemy AI**: Programmed AI behaviors for enemy by behavior tree, including pathfinding, decision making, skill usage, etc.
 
-- UI development: Develop all game's UI, gaining development experience with Unity's UI system.
+- **UI development**: Develop all game's UI, gaining development experience with Unity's UI system.
 
 ### Showcase
 

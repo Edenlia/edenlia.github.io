@@ -17,15 +17,15 @@ This project is aimed to learn OpenGL pipeline, real time rendering techniques a
 
 ## Features
 
-PCSS (Percentage-Closer Soft Shadows)
+### PCSS (Percentage-Closer Soft Shadows)
 
 ![pcss](/images/Volcan/pcss.png)
 
-Blooming
+### Blooming
 
 ![blooming](/images/Volcan/blooming.png)
 
-Screen Space Raytracing
+### Screen Space Reflection
 
 ![SSR](/images/Volcan/SSR.png)
 
