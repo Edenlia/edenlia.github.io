@@ -51,7 +51,7 @@
         {{ if eq $type "local" }}
             var playerElement = document.getElementById("{{$wrapperId}}");
             var player = new Clappr.Player({
-                source: {{ $src }},
+                source: "{{ $src }}",
                 mute: true,
                 width: "100%",
                 height: "100%",
@@ -70,14 +70,14 @@
                 {{ else }}
                 {{ end }}
             {{ end }}
-            var player = videojs({{$videoId}}, {
+            var player = videojs("{{$videoId}}", {
                 techOrder: ['youtube', 'vimeo'],
                 autoplay: false,
                 muted: false,
                 controls: true,
                 fluid: true,
                 sources: [{
-                    src: {{ $src }},
+                    src: "{{ $src }}",
                     type: videoType // 或 'video/vimeo',根据视频源自动判断
                 }]
             });
