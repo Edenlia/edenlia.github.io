@@ -38,4 +38,9 @@ Engineered all game mechanics and systems, including:
 
 Here is the game trailer of GazedHouse: 
 
-{{< video type="youtube" src="https://www.youtube.com/watch?v=rm7boWaAtAA" >}}
+{{< video type="youtube" id="trailer" src="https://www.youtube.com/watch?v=rm7boWaAtAA" >}}
+
+
+Here is the walkthrough: 
+
+{{< video type="youtube" id="walkthrough" src="https://www.youtube.com/watch?v=aoMcwSijx00" >}}
