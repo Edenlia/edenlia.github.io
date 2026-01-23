@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+  {{ partial "head.html" . }}
+  <body>
+    {{ partial "body-top" . }}
+    <main>
+
+      <section class="blog-list-main">
+        <div class="row">
+          <div class="col-xs-12 list-header">
+            <h1>{{ humanize .Type }}</h1>
+          </div>
+
+          <div class="blog-list-container">
+            {{ range .Data.Pages.ByDate.Reverse }}
+              <div class="blog-list-item">
+                <a href="{{ .Permalink }}" class="blog-link">
+                  <h3 class="blog-title">{{ .Title }}</h3>
+                  <p class="blog-meta">
+                    {{ .Date.Format (.Site.Params.dateform | default "January 2, 2006") }}
+                    {{ with .Lastmod }}
+                      | Last updated: {{ .Format ($.Site.Params.dateform | default "January 2, 2006") }}
+                    {{ end }}
+                  </p>
+                </a>
+              </div>
+            {{ end }}
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+    {{ partial "footer.html" . }}
+    {{ partial "body-bottom" . }}
+  </body>
+</html>

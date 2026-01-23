@@ -1,6 +1,6 @@
 +++
 title = "{{ replace .TranslationBaseName "-" " " | title }}"
 date = {{ .Date }}
-description = ""
+lastmod = {{ .Date }}
 draft = true
 +++

@@ -8,21 +8,11 @@
 @import "about";
 @import "gallery";
 @import "list";
+@import "blog";
 
 @media (max-width: 47.99em) {
   body .container {
     padding: $vertical-rhythm * 4 $vertical-rhythm;
-  }
-
-  nav {
-    // Hide menu links between logo and hamburger menu
-    div:not(:first-child):not(:last-child) {
-      display: none;
-    }
-
-    div.nav-toggle a {
-      display: inline-block;
-    }
   }
 }
 
@@ -30,31 +20,37 @@
   body .container {
     padding: $vertical-rhythm * 4 $vertical-rhythm;
   }
-
-  nav {
-    div.logo,
-    div.nav-toggle {
-      max-width: 50% !important;
-    }
-  }
 }
 
-nav {
+nav.nav-bar {
   position: absolute;
   z-index: 103;
   bottom: 0;
   width: 100%;
   height: $vertical-rhythm * 2;
-  background-color: $rich-black; // Navigation Bar background: Home, Work, etc
+  background-color: $rich-black;
   box-shadow: 0 2px 2px rgba(0, 0, 0, .4);
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  h3 {
-    margin: 0;
-    font-family: $font-body;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+  .nav-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5.5rem;
+  }
+
+  .nav-menu-item {
+    h3 {
+      margin: 0;
+      font-family: $font-body;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      white-space: nowrap;
+      font-size: 1.5rem;
+    }
   }
 
   img {
@@ -64,13 +60,28 @@ nav {
     vertical-align: middle;
   }
 
-  .logo,
   .nav-toggle {
-    visibility: hidden;
-  }
-
-  .nav-toggle a {
     display: none;
+  }
+}
+
+// 小屏幕响应式：隐藏菜单，显示hamburger
+@media (max-width: 47.99em) {
+  nav.nav-bar {
+    justify-content: flex-end;
+    padding: 0 1rem;
+
+    .nav-menu {
+      display: none;
+    }
+
+    .nav-toggle {
+      display: block;
+      
+      a {
+        display: inline-block;
+      }
+    }
   }
 }
 

@@ -123,16 +123,15 @@
 <script src="{{ (resources.Get "js/src/preview.js" | minify | fingerprint).Permalink }}" type="text/javascript"></script>
 {{ end }}
 
-<nav class="row middle-xs center-xs">
-  <div class="col-xs-6 col-sm-1 logo">
-{{/*    <a href="{{ "#" | relLangURL }}"><img {{ if .Site.Params.lazyLoading }}data-src="{{ .Site.Params.logoSmall }}" class="lazyload" lazyload="on"{{ else }}src="{{ .Site.Params.logoSmall }}"{{ end }} alt="{{ .Site.Title }}"></a>*/}}
-  </div>
+<nav class="nav-bar">
+  <div class="nav-menu">
     {{ range .Site.Menus.main }}
-      <div class="col-xs-3 col-sm-2">
+      <div class="nav-menu-item">
         <h3><a href="{{ .URL }}">{{ .Name }}</a></h3>
       </div>
     {{ end }}
-  <div class="col-xs-6 col-sm-1 nav-toggle">
+  </div>
+  <div class="nav-toggle">
       <a href="" class="nav-icon" onclick="return false">
         <img {{ if .Site.Params.lazyLoading }}data-src="/images/icon-menu-white.png" class="lazyload" lazyload="on" {{ else }}src="/images/icon-menu-white.png"{{ end }}alt="Open Menu">
         <img {{ if .Site.Params.lazyLoading }}data-src="/images/icon-x-white.png" class="lazyload" lazyload="on" {{ else }}src="/images/icon-x-white.png"{{ end }}alt="Close Menu" style="display: none;">

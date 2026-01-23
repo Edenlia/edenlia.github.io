@@ -68,10 +68,10 @@ disableKinds = ["taxonomy", "term"] # This theme does not currently use "tag" an
   name = "Tech"
   url  = "/tech"
   weight = 4
-#[[menu.main]]
-#  name = "Art"
-#  url  = "/#blog"
-#  weight = 5
+[[menu.main]]
+  name = "Blog"
+  url  = "/blog"
+  weight = 5
 [[menu.main]]
   name = "About"
   url  = "/about"
