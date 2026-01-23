@@ -8,7 +8,7 @@ canonifyURLS = true
 staticDir = "static"
 googleAnalytics = ""
 disqusShortname = "Shuyang"
-disableKinds = ["taxonomy", "taxonomyTerm"] # This theme does not currently use "tag" and "category" taxonomies
+disableKinds = ["taxonomy", "term"] # This theme does not currently use "tag" and "category" taxonomies
 
 [Params]
   tagline = "Shuyang Zhang"

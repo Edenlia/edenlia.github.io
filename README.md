@@ -1,6 +1,14 @@
 # Quick Start
 
-```bash
-git clone --recursive https://github.com/Edenlia/edenlia.github.io.git
+## 1. Install Hugo
+
+Go to https://gohugo.io/installation/
+
+## 2. Start server
+
+Local Server
+
+```
+hugo server -D
 ```
 
