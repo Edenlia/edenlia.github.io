@@ -39,6 +39,9 @@ disableKinds = ["taxonomy", "term"] # This theme does not currently use "tag" an
   cacheBustCSS = false
   cacheBustJS = false
 
+  # Math rendering with KaTeX
+  math = true
+
   # Code highlighting with highlight.js
   highlightJS = true
   highlightJSStyle = "" # For custom highlight.js styles, add your /path/to/styles/default.css
@@ -76,4 +79,11 @@ disableKinds = ["taxonomy", "term"] # This theme does not currently use "tag" an
   name = "About"
   url  = "/about"
   weight = 6
+
+[markup.goldmark.extensions.passthrough]
+  enable = true
+
+[markup.goldmark.extensions.passthrough.delimiters]
+  block = [['$$', '$$'], ['\[', '\]']]
+  inline = [['$', '$'], ['\(', '\)']]
 
