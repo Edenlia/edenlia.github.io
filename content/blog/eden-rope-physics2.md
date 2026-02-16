@@ -2,13 +2,13 @@
 title = "Unreal Engine 物理绳子模拟(2): XPBD(Extended Position Based Dynamics)方法导读"
 date = 2026-02-16T11:00:00+08:00
 lastmod = 2026-02-16T11:00:00+08:00
-draft = true
+draft = false
 
 +++
 
 # 前言
 
-上一篇blog详细讲了PBD的Constraint的求解推导，理论上我们已经可以进行实践实施了，但是这个算法有一个很大的痛点，就是我们用于表示约束"*刚度*"的$s$实际上是*假的*，本质上是一个经验公式给出的量，是非物理的。具体表现出来的现象是，就算我们设置死了一个Constraint的$s$值不变，在不同的iteration设置下，Constraint的硬度还是会有所不同。为解决这个问题，PBD的原作者Matthias Müller又推出了PBD的"加强版本"，也就是这篇blog的主角儿 XPBD。
+上一篇blog详细讲了PBD的Constraint的求解推导，理论上我们已经可以按照论文的公式开始写代码了，但是这个算法其实有一个很大的痛点，就是我们用于表示约束"*刚度*"的$s$实际上是*假的*，它本质上是一个经验公式给出的量，是非物理的。具体表现出来的现象是，就算我们设置死了一个Constraint的$s$值不变，在不同的iteration设置下，Constraint的硬度还是会有所不同。为解决这个问题，PBD的原作者Matthias Müller又推出了PBD的"加强版本"，也就是这篇blog的主角儿 XPBD。
 
 PBD的方法导读可以查阅上一篇blog
 
@@ -30,7 +30,7 @@ XPBD的完整模拟步骤如下：
 
 ## 2.数据定义
 
-老样子，为了让后续推导清晰命令，还是先把我们的数据定义给写写出来，定义与上一篇blog的定义一致。
+老样子，为了让后续推导清晰明了，还是先把我们的数据的变量定义写写出来，变量名与上一篇blog的定义一致。
 
 我们设当前的时间为$t_k$, 整个物理系统中总共有$n$个粒子, 粒子间相互有着约束，总共有$m$个约束。
 
@@ -58,7 +58,9 @@ XPBD的完整模拟步骤如下：
 
 ### 3.1 迭代求解公式推导
 
-为保证这一次推出来的公式是物理正确的，我们分析一下设置的Constraint蕴含的能量以及Constraint使粒子受力的情况。Constraint给粒子提供的力可以被看做是一种保守力（conservative force），记作$\mathbf{F}_\text{elastic}(\mathbf{X})$，保守力可以被写作与势能相关的公式，根据牛顿经典力学公式可以得出：
+为保证这一次推出来的公式是物理正确的，我们需要分析一下设置的Constraint蕴含的能量以及Constraint使粒子受力的情况。
+
+Constraint给粒子提供的力可以被看做是一种保守力（conservative force），记作$\mathbf{F}_\text{elastic}(\mathbf{X})$，保守力可以被写作与势能相关的公式，根据牛顿经典力学公式可以得出：
 
 $$\begin{equation} M\cdot{\ddot{\mathbf{X}}} = -\nabla_{\mathbf{X}}{U^{\top}(\mathbf{X})} = \mathbf{F}_\text{elastic}(\mathbf{X}) \end{equation}$$
 
@@ -86,14 +88,14 @@ $$\begin{equation} \mathbf{F}_\text{elastic}(\mathbf{X}) = -\nabla_{\mathbf{X}}{
 
 得到这些公式后，我们现在考虑$t_k\to{}t_{k+1}$的解算，先做一些变量定义：
 
-- $\tilde{\mathbf{X}}^k\coloneqq 2\cdot{\mathbf{X}}^k-{\mathbf{X}}^{k-1}\approx{\mathbf{X}}^k+\Delta{t}\cdot{\mathbf{V}}^k$：用一个在$t_k$时间速度的近似让我们不再依赖$t_{k-1}$的信息，并且这种做法是"隐式"的，不会导致数值爆炸
+- $\tilde{\mathbf{X}}^k\coloneqq 2\cdot{\mathbf{X}}^k-{\mathbf{X}}^{k-1}\approx{\mathbf{X}}^k+\Delta{t}\cdot{\mathbf{V}}^k$：用一个在$t_k$时间速度的近似让我们不再依赖$t_{k-1}$的信息，这种做法是"隐式"的，不会导致数值爆炸
 - $\tilde{\bm{\alpha}}\coloneqq \frac{\bm{\alpha}}{\Delta{}t^2}$
 
 然后引入变量lambda的定义（如上文所述，这个在论文中被称为完整的拉格朗日乘子 total lagrange multiplier）：
 
 $$\begin{equation} \bm\lambda_\text{elastic}=-\tilde{\bm\alpha}^{-1}\cdot{\mathbf{C}}(\mathbf{X}) \end{equation}$$
 
-考虑一个具体时刻的值：$\bm{\lambda}_{\text{elastic}}(\mathbf{X}^{k+1})\equiv\bm{\lambda}_{\text{elastic}}^{k+1}\coloneqq -\tilde{\bm{\alpha}}^{-1}\mathbf{C}(\mathbf{X}^{k+1})\in\mathbb{R}^{m}$，这是一个m列的列向量，其中**每个元素**为$\lambda_j\in\mathbb{R}$，是一个标量，代表了第j个Constraint的lambda值，下文把$\bm{\lambda}_{\text{elastic}}$简写成$\bm\lambda$
+考虑一个具体时刻的值：$\bm{\lambda}_{\text{elastic}}(\mathbf{X}^{k+1})\equiv\bm{\lambda}_{\text{elastic}}^{k+1}\coloneqq -\tilde{\bm{\alpha}}^{-1}\mathbf{C}(\mathbf{X}^{k+1})\in\mathbb{R}^{m}$，可以看到，这是一个m列的列向量，其中**每个元素**为$\lambda_j\in\mathbb{R}$，是一个标量，代表了第j个Constraint的lambda值，下文把$\bm{\lambda}_{\text{elastic}}$简写成$\bm\lambda$
 
 现在，结合(2)(4)两个公式，并把刚刚定义的变量代入，能够得到公式：
 
@@ -146,7 +148,7 @@ $$\begin{equation} \begin{bmatrix} \frac{\partial{\mathbf{g}}}{\partial{\mathbf{
 
 由此我们得到了：
 
-$\frac{\partial{\mathbf{g}}}{\partial{\mathbf{X}}}\approx\mathbf{M}$，这里使用加粗的原因是这个值推出来是一个$\mathbb{R}^{n*m\,\times\,n*m}$的对角矩阵，直观理解可以理解为是一个mxm的对角阵，而每一个元素都是一个$M\in\mathbb{R}^{n\times{}n}$，因此维度是$\mathbb{R}^{n*m\,\times\,n*m}$
+$\frac{\partial{\mathbf{g}}}{\partial{\mathbf{X}}}\approx\mathbf{M}$，这里使用加粗的原因是这个值推出来是一个$\mathbb{R}^{n*m\,\times\,n*m}$的对角矩阵，直观理解可以理解为这是一个mxm的对角阵，而每一个元素都是一个$M\in\mathbb{R}^{n\times{}n}$，因此维度是$\mathbb{R}^{n*m\,\times\,n*m}$
 
 同时，再做最后一个近似，$\mathbf{g}(\hat{\mathbf{X}}^{(p)},\hat{\bm\lambda}^{(p)})\approx\mathbf{0}$
 
