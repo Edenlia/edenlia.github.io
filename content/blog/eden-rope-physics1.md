@@ -1,7 +1,7 @@
 +++
 title = "Unreal Engine 物理绳子模拟(1): 概述及Position Based Dynamics方法导读"
 date = 2026-02-10T10:00:00+08:00
-lastmod = 2026-02-10T10:00:00+08:00
+lastmod = 2026-02-16T10:00:00+08:00
 draft = false
 
 +++
@@ -143,17 +143,29 @@ $$\begin{equation}\Delta{\mathbf{x}_i}=-\frac{C(\mathbf{X}^k)}{\Sigma{}w_i||\nab
 
 优化目标：
 
-$$\argmin\{\frac12{\sum^{n}_im_i||\Delta\mathbf{x}_i^k}||^2\}$$ 
+$$f(\Delta\mathbf{X})=\argmin\{\frac12{\sum^{n}_im_i||\Delta\mathbf{x}_i}||^2\}$$ 
 
 限制条件：
 
-$$C(\mathbf{X}^k)+\nabla_{\mathbf{X}}C(\mathbf{X}^k)\cdot\Delta{\mathbf{X}}^\top=0$$
+$$g(\Delta{\mathbf{X}})=C(\mathbf{X}^k)+\nabla_{\mathbf{X}}C(\mathbf{X}^k)\cdot\Delta{\mathbf{X}}^\top=0$$
 
-用**拉格朗日乘子法**同样可以证明：
+用**拉格朗日乘子法**同样可以证明。
 
-结论：
+证明：
 
-$$\Delta{\mathbf{x}_i}=-\frac{C(\mathbf{X}^k)}{\Sigma{}w_i||\nabla_{\mathbf{x}_i}C(\mathbf{X}^k)||^2}\cdot{w_i}\cdot\nabla_{\mathbf{x}_i}C(\mathbf{X}^k)$$
+先引入拉格朗日乘子 (Lagrangian Multiplier) $\lambda$ 并构造拉格朗日函数：
+
+$$\begin{equation}\mathcal{L}(\Delta{\mathbf{X}},\lambda)=f(\Delta\mathbf{X})-\lambda\cdot{}g(\Delta\mathbf{X})\end{equation}$$
+
+具体过程就不细细的推了，本质就是求偏导，然后设置偏导为0，联立方程，一通操作后能够算出：
+
+$$\begin{equation}\lambda=-\frac{C(\mathbf{X}^k)}{\Sigma{}w_i||\nabla_{\mathbf{x}_i}C(\mathbf{X}^k)||^2}\end{equation}$$
+
+然后对于每行（每个x）有：$\Delta\mathbf{x}_i=w_i\lambda\cdot\nabla_{\mathbf{x}_i}C(\mathbf{X}^k)$
+
+得到与之前一样的结论：
+
+$$\begin{equation}\Delta{\mathbf{x}_i}=-\frac{C(\mathbf{X}^k)}{\Sigma{}w_i||\nabla_{\mathbf{x}_i}C(\mathbf{X}^k)||^2}\cdot{w_i}\cdot\nabla_{\mathbf{x}_i}C(\mathbf{X}^k)\end{equation}$$
 
 ### 3.3 考虑刚度
 
